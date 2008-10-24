@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2008-09-15T00:47:03</date>
+  <millis>1221450423687</millis>
+  <sequence>1</sequence>
+  <logger>Usuario : 424</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoFornecedor</class>
+  <method>Alterar</method>
+  <thread>10</thread>
+  <message>Exception [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs (12/06/2007))): oracle.toplink.essentials.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: null value in column "idbanco" violates not-null constraint
+Error Code: 0
+Call: INSERT INTO dadosbancarios (contacorrente, contacorrentedigito, agencia, idbanco) VALUES (?, ?, ?, ?)
+	bind =&gt; [null, null, null, null]
+Query: InsertObjectQuery(Classes.dadosbancarios[iddadosbancarios=null])</message>
+</record>

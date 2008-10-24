@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2008-08-31T18:23:11</date>
+  <millis>1220217791328</millis>
+  <sequence>0</sequence>
+  <logger>br.com.guj.model</logger>
+  <level>WARNING</level>
+  <class>Dao.Interfaces.DaoAbstractGenerica</class>
+  <method>MonitoraAplicacao</method>
+  <thread>10</thread>
+  <message>Exception [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs (12/06/2007))): oracle.toplink.essentials.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: update or delete on table "botao" violates foreign key constraint "telabotao_idbotao_fkey" on table "telabotao"
+  Detalhe: Key (idbotao)=(1) is still referenced from table "telabotao".
+Error Code: 0
+Call: DELETE FROM botao WHERE (idbotao = ?)
+	bind =&gt; [1]
+Query: DeleteObjectQuery(Classes.botao[idbotao=1])</message>
+</record>
