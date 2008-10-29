@@ -132,7 +132,7 @@ public class DaoBanco extends DaoAbstractGenerica implements DaoGenericaBanco{
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("nome")) {
-                Parametros = Parametros + "b.nome ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + "b.nome LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
             }else if (ListaParametros.get(contador).contentEquals("codigo")){
                 Parametros = Parametros + "b.idbanco = '%"+ ListaParametros.get(contador + 1) +"%'";
             }           

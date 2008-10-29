@@ -118,13 +118,13 @@ public class DaoFuncionalidade extends DaoAbstractGenerica implements DaoGeneric
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("DescricaoBotao")) {
-                Parametros = Parametros + "b.descricaobotao ILIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
+                Parametros = Parametros + "b.descricaobotao LIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
             } else
                 if (ListaParametros.get(contador).contentEquals("TituloBotao")) {
-                Parametros = Parametros + "b.titulobotao ILIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
+                Parametros = Parametros + "b.titulobotao LIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
                 } else 
                     if (ListaParametros.get(contador).contentEquals("NomeBotao")) {
-                Parametros = Parametros + "b.nomebotao ILIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
+                Parametros = Parametros + "b.nomebotao LIKE '%"+ ListaParametros.get(contador + 1) +"%' and ";
                     }       
             contador += 2;
         }

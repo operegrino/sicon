@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.2" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -10,7 +10,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-48,0,0,2,95"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,85,0,0,5,97"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -43,86 +43,112 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="0" max="-2" attributes="0">
                       <Component id="jpnBotoes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jlb1Banco" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jlb1razaoSocial" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1Cnpj" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1Cep" alignment="1" pref="62" max="32767" attributes="1"/>
-                          <Component id="jlb1Cgc" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1Rua" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1Bairro" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1Site" alignment="1" max="32767" attributes="1"/>
-                          <Component id="jlb1TempoEntrega" alignment="1" pref="102" max="32767" attributes="1"/>
-                          <Component id="jlb1Codigo" alignment="1" max="32767" attributes="1"/>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtfSite" alignment="0" pref="435" max="32767" attributes="0"/>
-                                  <Component id="jtfCodigo" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="jtfRazaoSocial" alignment="0" pref="435" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jtfCnpj" alignment="0" pref="37" max="32767" attributes="1"/>
-                                          <Component id="jtfCgc" alignment="1" pref="37" max="32767" attributes="1"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jlb1Banco" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jlb1RazaoSocial" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="jlb1Site" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="jlb1TempoEntrega" alignment="1" pref="102" max="32767" attributes="1"/>
+                                          <Component id="jlb1Codigo" alignment="1" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jlb1InscricaoEstadual" min="-2" pref="98" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtfInscricaoEstadual" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="jlb1Cnpj" max="32767" attributes="1"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jlb1Ccm" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jlb1Bairro" max="32767" attributes="1"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtfccm" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="jlb1Cep" pref="62" max="32767" attributes="1"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jtfBairro" min="-2" pref="222" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jlb1Cidade" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                      <Component id="jtfCidade" pref="169" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jtfRua" pref="359" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jlb1Numero" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtfNumero" min="-2" pref="56" max="-2" attributes="1"/>
-                                  </Group>
-                                  <Component id="jtfCep" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jtfTempoEntrega" min="-2" pref="129" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="edPerfilDesc" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jlb1Rua" max="32767" attributes="1"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jlb1Cgc" alignment="0" max="32767" attributes="1"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="682" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" max="-2" attributes="0">
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jtfBairro" min="-2" pref="230" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jlb1Cidade" pref="48" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jtfCidade" min="-2" pref="253" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="1">
+                                              <Component id="jtfRua" min="-2" pref="457" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jlb1Numero" pref="12" max="32767" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jtfNumero" min="-2" pref="56" max="-2" attributes="1"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jtfCep" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jtfTempoEntrega" min="-2" pref="129" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jlbDias" min="-2" pref="90" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jtfRazaoSocial" alignment="0" pref="545" max="32767" attributes="1"/>
+                                          <Component id="jtfSite" alignment="0" pref="545" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jtfCgc" min="-2" pref="128" max="-2" attributes="1"/>
+                                                  <Component id="jftCnpj" max="32767" attributes="1"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jlb1InscricaoEstadual" min="-2" pref="123" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jtfInscricaoEstadual" min="-2" pref="124" max="-2" attributes="1"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jlb1Ccm" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jtfccm" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jtfCodigo" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="572" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="jtfBanco" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jlb1Agencia" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtfAgencia" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlb1ContaCorrente" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtfContaCorrente" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtfContaCorrenteDigito" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="694" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="jtfBanco" min="-2" pref="98" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jlb1Agencia" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jpnDIvisao" min="-2" pref="766" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfAgencia" min="-2" pref="110" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlb1ContaCorrente" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfContaCorrente" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfContaCorrenteDigito" min="-2" pref="16" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="694" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="130" pref="130" max="130" attributes="0"/>
-                      <Component id="jpnDIvisao" pref="636" max="32767" attributes="0"/>
-                      <EmptySpace pref="611" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="138" pref="138" max="138" attributes="0"/>
@@ -136,66 +162,64 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jtfCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jlb1Codigo" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jtfCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlb1RazaoSocial" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jtfRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlb1razaoSocial" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jtfInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtfccm" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlb1Ccm" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="jlb1InscricaoEstadual" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jtfCnpj" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfCgc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jtfNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlb1Numero" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jtfRua" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtfBairro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlb1Cidade" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jtfCidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfCep" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlb1Cnpj" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jtfInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfccm" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlb1Ccm" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jlb1InscricaoEstadual" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jftCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="jlb1Cnpj" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jtfCgc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlb1Cgc" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jtfRua" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlb1Rua" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jtfNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlb1Numero" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jtfBairro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlb1Bairro" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlb1Cgc" min="-2" pref="20" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="jlb1Rua" min="-2" pref="20" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlb1Bairro" min="-2" pref="20" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlb1Cep" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jtfCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlb1Cep" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jtfCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlb1Cidade" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jtfSite" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jlb1Site" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jtfSite" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jtfTempoEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="edPerfilDesc" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlb1TempoEntrega" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jlbDias" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="jlbDescBanco" min="-2" max="-2" attributes="0"/>
@@ -214,6 +238,11 @@
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jpnBotoes" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="219" pref="219" max="219" attributes="0"/>
+                      <Component id="jlb1TempoEntrega" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="139" pref="139" max="139" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -225,11 +254,11 @@
                 <Property name="name" type="java.lang.String" value="jlb1Codigo" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlb1razaoSocial">
+            <Component class="javax.swing.JLabel" name="jlb1RazaoSocial">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="* Raz&#xe3;o Social" noResource="true"/>
-                <Property name="name" type="java.lang.String" value="jlb1razaoSocial" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="jlb1RazaoSocial" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jlb1Cgc">
@@ -353,7 +382,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="636" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="766" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -374,11 +403,6 @@
                 <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value=" * CNPJ" noResource="true"/>
                 <Property name="name" type="java.lang.String" value="jlb1Cnpj" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtfCnpj">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jtfCnpj" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jlb1Banco">
@@ -445,12 +469,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="0" max="-2" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btContatos" alignment="0" pref="96" max="32767" attributes="0"/>
-                              <Component id="jbtPagamento" alignment="1" pref="96" max="32767" attributes="0"/>
-                              <Component id="jButton4" alignment="1" pref="96" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btContatos" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="jbtPagamento" alignment="1" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="jbtProduto" alignment="1" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -464,8 +488,8 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jbtPagamento" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="167" max="32767" attributes="0"/>
+                          <Component id="jbtProduto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="119" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -477,7 +501,7 @@
                       <Image iconType="3" name="/Icones/contato.PNG"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Contatos" noResource="true"/>
-                    <Property name="toolTipText" type="java.lang.String" value="&quot;Adicione telefones e e-mails do fornecedor&quot;" noResource="true"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Adicione telefones e e-mails do fornecedor" noResource="true"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="1" type="code"/>
@@ -502,14 +526,19 @@
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtPagamentoMousePressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton4">
+                <Component class="javax.swing.JButton" name="jbtProduto">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="C:\Documents and Settings\Jonathan\workspace NetBeans\TCC\src\Icones\icone_carrinho.PNG"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Produtos" noResource="true"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Indique os produtos que este fornecedor disponibiliza"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jbtProduto" noResource="true"/>
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtProdutoMousePressed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -529,22 +558,22 @@
                 <Property name="name" type="java.lang.String" value="jtfContaCorrenteDigito" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edPerfilDesc">
+            <Component class="javax.swing.JFormattedTextField" name="jftCnpj">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="editable" type="boolean" value="false"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="11" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="dias"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-                <Property name="name" type="java.lang.String" value="edPerfilDesc" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="jftCnpj" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jftCnpjFocusLost"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(msk)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try {&#xa;    MaskFormatter msk = new MaskFormatter(&quot;##.###.###/####-##&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="} catch (Exception e) {&#xa;    &#xa;}"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jlbDias">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dias"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -590,10 +619,10 @@
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField22" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jTextField23" pref="444" max="32767" attributes="0"/>
+                              <Component id="jtfCodigoPesq" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="jtfRazaoSocialPesq" min="-2" pref="691" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                          <EmptySpace pref="612" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -603,12 +632,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel34" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField22" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfCodigoPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel35" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfRazaoSocialPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -616,14 +645,20 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField23">
+                <Component class="javax.swing.JTextField" name="jtfRazaoSocialPesq">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jtfRazaoSocialPesq" noResource="true"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel34">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField22">
+                <Component class="javax.swing.JTextField" name="jtfCodigoPesq">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jtfCodigoPesq" noResource="true"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel35">
                   <Properties>
@@ -661,6 +696,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtbFornecedorMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -11,6 +11,7 @@ import Telas.Tabelas.JTableFormaPagamento;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -21,6 +22,8 @@ import javax.swing.JPanel;
 public class TelaFormaPagamento extends TelaAncestral implements InterfacePadraoTela{
 
     private ControllerFormaPagamento Controller;
+    private TelaPagamentoFornecedor telaPagamentoFornecedor;
+    private JDesktopPane telaPrincipal;
     List ListaFormaPagamento;
     
     /** Creates new form BeanForm */
@@ -37,6 +40,16 @@ public class TelaFormaPagamento extends TelaAncestral implements InterfacePadrao
         super.setComportamentoPanel(1);      
         ListaFormaPagamento = new ArrayList();
         Controller = new ControllerFormaPagamento();
+    }
+    
+    
+    
+    public void setTelaPagamentoFornecedor(TelaPagamentoFornecedor Tela){
+        this.telaPagamentoFornecedor = Tela;
+    }
+    
+    public void setDesktopPane(JDesktopPane tela) {
+        this.telaPrincipal = tela;
     }
     
     /*************************************************************************
@@ -258,7 +271,9 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
             super.setLocalizacao(1);
             super.setComportamentoPanel(2);
         } else {
-
+            int Posicao = jtbFormaPagamento.getSelectedRow();
+            this.telaPagamentoFornecedor.setarCamposForma(((Object[])ListaFormaPagamento.get(Posicao))[0].toString(), ((Object[])ListaFormaPagamento.get(Posicao))[1].toString());            
+            super.FechaFrameInterno();
           }
     }
 }//GEN-LAST:event_jtbFormaPagamentoMousePressed

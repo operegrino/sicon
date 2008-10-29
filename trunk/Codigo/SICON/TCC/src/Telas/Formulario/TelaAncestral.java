@@ -8,13 +8,18 @@ package Telas.Formulario;
 
 import Classes.Funcoes;
 import Classes.mensagens;
+import Telas.Componentes.MensagensDefinidas;
+import Telas.Componentes.MensagensDefinidas;
 import Telas.Componentes.TelaInterna;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JDesktopPane;
+import javax.swing.JFormattedTextField;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -35,12 +40,17 @@ public class TelaAncestral extends javax.swing.JPanel {
     protected int Localizacao;    
     //se é alteração ou se é inserção
     protected int Operacao;
+    protected MensagensDefinidas Mensagens;
     //Panels da tela
     protected JPanel jpnPesquisa, jpnCadastro, jpnTela;
     //se está sendo aberto atraves do menu ou atraves de um botão para retornar um valor;
     public int TipoVisualizacao;
     protected Funcoes funcoes;
     protected TelaInterna FrameInterno;
+    
+    public TelaInterna telaInterna;
+    protected String TituloTela = "";
+    public JDesktopPane TelaPrincipal;
     
     //Controle de Acesso dos botões
     private boolean HabilitaVoltar;
@@ -54,6 +64,11 @@ public class TelaAncestral extends javax.swing.JPanel {
         initComponents();
         TipoVisualizacao = 0;
         funcoes = new Funcoes();
+        Mensagens = new MensagensDefinidas();
+    }
+    
+    protected void visibilidadeExcluir(boolean visivel){
+        this.btExcluir.setVisible(visivel);
     }
     
     public void setHabilitaVoltar(boolean acesso){
@@ -67,6 +82,8 @@ public class TelaAncestral extends javax.swing.JPanel {
     public void setLocalizacao(int Local) {
         this.Localizacao = Local;
     }
+    
+    
     
     public void DesabilitaBotoesAncestral(){
         this.HabilitaNovo = false;
@@ -147,17 +164,58 @@ public class TelaAncestral extends javax.swing.JPanel {
     protected void setTitulo(String Titulo) {
         jlbTitulo.setText(Titulo);
     }    
+    
+    public String getTitulo(){
+        return jlbTitulo.getText();
+    }
+    
     public Container getPanelAncestralCriado() {
         return jpnAncestral;
     }
     
-    protected void CarregarTelaInterna(TelaInterna interna, String titulo){
+    public void setDesktopPane(JDesktopPane Pane) {
+        this.TelaPrincipal = Pane;
+    } 
+    
+    public void CriarTelaInterna(Object Tela){
+        EscreverMetodosAbstratosTelasInternas();
+        CarregarTelaInterna(telaInterna, TituloTela, null);                
+        CarregarTela(Tela); 
+    }
+    
+    private void CarregarTela(Object Tela){
+      ((JPanel)Tela).setVisible(true);
+        //telaContatoFornecedor.setJTextRetorno(jtfTela);
+        ((TelaAncestral)Tela).setFrameInterno(telaInterna);
+        telaInterna.add(((JPanel)Tela));
+        TelaPrincipal.add(telaInterna);
+        telaInterna.setVisible(true);         
+    }
+            
+    private void EscreverMetodosAbstratosTelasInternas() {
+        telaInterna = new TelaInterna(){
+
+            @Override
+            public void EventoFechar() {
+                HabilitaForm();               
+            }
+
+            @Override
+            public void EventoAbrir() {
+                DesabilitaForm();
+            }
+        };
+    }            
+    
+    protected void CarregarTelaInterna(TelaInterna interna, String titulo, Dimension Tamanho){
         interna.setTitle(titulo);
         interna.setResizable(true);
         interna.setClosable(true);
         interna.setMaximizable(false);
         interna.setIconifiable(false);
-        interna.setSize(700,600);
+        if (Tamanho == null) {
+            interna.setSize(700,600);
+        } else interna.setSize(Tamanho);
         interna.setLocation(Funcoes.CentralizarFrame(interna.getSize()));
         //return jifTela;
     }
@@ -361,6 +419,13 @@ public void DesabilitaForm() {
             }
         }        
     }
+    
+    protected void ComportamentoSelecionar(){
+        this.Operacao = 1;
+        this.setLocalizacao(1);            
+        setComportamento(2);     
+        setComportamentoPanel(2);        
+    }
         
         
     protected void setComportamentoPanel(int Operacao) {
@@ -415,13 +480,25 @@ public void DesabilitaForm() {
                             //JTextArea
                             if (jpnDados.getComponent(contDados) instanceof JTextArea) {
                                 NomeComponente = ((JTextArea)jpnDados.getComponent(contDados)).getName().toString();
-                                if (NomeLabel.substring(3, NomeLabel.length()).equals(
+                                if (NomeLabel.substring(4, NomeLabel.length()).equals(
                                     NomeComponente.substring(3, NomeComponente.length()))) {
-                                    if (((JTextField)jpnDados.getComponent(contDados)).getText().trim().equals("")) {
+                                    if (((JTextArea)jpnDados.getComponent(contDados)).getText().trim().equals("")) {
                                         LimpouTudo = false;
                                         DestacaComponenteVazio(((JLabel)jpnDados.getComponent(contLabel)));
                                     } else NormalizaComponenteVazio(((JLabel)jpnDados.getComponent(contLabel)));
                                 }
+                            }
+                            //JFormattedText
+                            if (jpnDados.getComponent(contDados) instanceof JFormattedTextField) {
+                                NomeComponente = ((JFormattedTextField)jpnDados.getComponent(contDados)).getName().toString();
+                                if (NomeLabel.substring(4, NomeLabel.length()).equals(
+                                    NomeComponente.substring(3, NomeComponente.length()))) {
+                                    if ((((JFormattedTextField)jpnDados.getComponent(contDados)).getValue() == null)
+                                       && (((JFormattedTextField)jpnDados.getComponent(contDados)).getText().trim().equals("/  /"))) {
+                                        LimpouTudo = false;
+                                        DestacaComponenteVazio(((JLabel)jpnDados.getComponent(contLabel)));
+                                    } else NormalizaComponenteVazio(((JLabel)jpnDados.getComponent(contLabel)));
+                                }                                
                             }
                             contDados +=1;
                     }    
@@ -462,9 +539,11 @@ public void DesabilitaForm() {
                             ((JTextArea)obj).setText("");
                         }
                     }                   
-                } else if ((jpnDados.getComponent(cont) instanceof JCheckBox)) {
-                    ((JCheckBox)jpnDados.getComponent(cont)).setSelected(false);
-                }          
+            } else if ((jpnDados.getComponent(cont) instanceof JCheckBox)) {
+               ((JCheckBox)jpnDados.getComponent(cont)).setSelected(false);
+            } else if ((jpnDados.getComponent(cont) instanceof JLabel)) {
+               NormalizaComponenteVazio((JLabel)jpnDados.getComponent(cont));
+            }
             cont +=1;   
             }
         }

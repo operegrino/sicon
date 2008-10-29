@@ -8,6 +8,7 @@ package Classes;
 import Dao.Classes.DaoFornecedor;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,9 +18,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -62,9 +65,16 @@ public class fornecedor implements Serializable, InterfacePadraoClasse {
     private String site;
     @Column(name = "tempoentrega", nullable = false)
     private int tempoentrega;
-    @OneToOne(optional=true, fetch=FetchType.EAGER)
+    @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "iddadosbancarios", unique = true, referencedColumnName = "iddadosbancarios", nullable = true)    
     private dadosbancarios dadosbancarios;
+    @OneToMany(fetch=FetchType.EAGER)/*(cascade = CascadeType.ALL, mappedBy = "idtela")*/
+    @JoinTable(
+                name="formapagamentofornecedor",
+                joinColumns= @JoinColumn(name="idfornecedor", referencedColumnName="idfornecedor"),
+                inverseJoinColumns= @JoinColumn(name="idformapagamento", referencedColumnName="idformapagamento")
+                )
+    private Collection<formapagamento> ListaFormaPagamento;    
 
     public fornecedor() {
     }
@@ -201,6 +211,14 @@ public class fornecedor implements Serializable, InterfacePadraoClasse {
     public void setdadosbancarios(dadosbancarios iddadosbancarios) {
         this.dadosbancarios = iddadosbancarios;
     }
+    
+    public Collection<formapagamento> getFormaPagamento() {
+        return ListaFormaPagamento;
+    }
+
+    public void setFormaPagamento(Collection<formapagamento> Lista) {
+        this.ListaFormaPagamento = Lista;
+    }
 
     @Override
     public int hashCode() {
@@ -265,6 +283,7 @@ public class fornecedor implements Serializable, InterfacePadraoClasse {
         setSite(null);
         setTempoentrega(0);
         setdadosbancarios(null);
+        setFormaPagamento(null);
     }
 
     @Override
@@ -274,6 +293,22 @@ public class fornecedor implements Serializable, InterfacePadraoClasse {
         DaoFornecedor daoFornecedor = new DaoFornecedor();
         try {
             this.CarregarClasse(daoFornecedor.CarregarObjeto(this));
+        } catch (Exception ex) {
+            this.LimparClasse();
+        }
+    }
+    
+    public List RetornaEmail() {                
+        DaoFornecedor daoFornecedor = new DaoFornecedor();
+        return daoFornecedor.PesquisarListaEmail(this.idfornecedor);
+    }    
+    
+    public void LerClasse(String Codigo) {
+        LimparClasse(); 
+        this.setCodigo(Codigo);
+        DaoFornecedor daoFornecedor = new DaoFornecedor();
+        try {
+            this.CarregarClasse(daoFornecedor.CarregarObjetoPeloCodigo(this));
         } catch (Exception ex) {
             this.LimparClasse();
         }
@@ -296,6 +331,7 @@ public class fornecedor implements Serializable, InterfacePadraoClasse {
         setSite(((fornecedor)object).getSite());
         setTempoentrega(((fornecedor)object).getTempoentrega());
         setdadosbancarios(((fornecedor)object).getdadosbancarios());
+        setFormaPagamento(((fornecedor)object).getFormaPagamento());
     }
 
 }

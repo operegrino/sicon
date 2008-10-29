@@ -412,7 +412,7 @@ private void jbtBotaoPesquisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-
                DesabilitaForm();
             }
         };
-    super.CarregarTelaInterna(telaInterna, "Botão");
+    super.CarregarTelaInterna(telaInterna, "Botão", null);
     CarregarTela(telaInterna);
         try {
             telaInterna.setSelected(true);

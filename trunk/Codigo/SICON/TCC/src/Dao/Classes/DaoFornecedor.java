@@ -33,6 +33,7 @@ public class DaoFornecedor extends DaoAbstractGenerica implements DaoGenericaFor
         try {
             transaction.begin();
             super.AtualizaUsuario();  
+            // VALIDA SE É NECESSÁRIO GRAVAR OS DADOS BANCARIOS
             if (((fornecedor)object).getdadosbancarios().getContacorrente() != null) {
                 manager.persist(((fornecedor)object).getdadosbancarios());
             } else ((fornecedor)object).setdadosbancarios(null);
@@ -60,6 +61,7 @@ public class DaoFornecedor extends DaoAbstractGenerica implements DaoGenericaFor
         try {
             transacao.begin();
             super.AtualizaUsuario();
+            // VALIDA SE É NECESSÁRIO GRAVAR OS DADOS BANCARIOS
             if (((fornecedor)object).getdadosbancarios().getContacorrente() != null) {
                 manager.merge(((fornecedor)object).getdadosbancarios());
             } else ((fornecedor)object).setdadosbancarios(null);          
@@ -88,6 +90,7 @@ public class DaoFornecedor extends DaoAbstractGenerica implements DaoGenericaFor
         try {
             transacao.begin();
             super.AtualizaUsuario();
+            // VALIDA SE É NECESSÁRIO EXCLUIR OS DADOS BANCARIOS
             if (((fornecedor)object).getdadosbancarios() != null) {
                 dadosbancarios db = new dadosbancarios();
                 db = manager.merge(((fornecedor)object).getdadosbancarios());
@@ -119,31 +122,52 @@ public class DaoFornecedor extends DaoAbstractGenerica implements DaoGenericaFor
         ListaResultado = new ArrayList();
         int contador = 0;
         if (!(ListaParametros.isEmpty())){
-            Parametros = " where ";
+            Parametros = " where ";            
         }
+        String And = "";
         while (ListaParametros.size() > contador) {
-            if (ListaParametros.get(contador).contentEquals("razaosocial")) {
-                Parametros = Parametros + "f.razaosocial ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+            if (ListaParametros.get(contador).contentEquals("RazaoSocial")) {
+                Parametros = Parametros + And + "f.razaosocial LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                And = " And ";
             }else if (ListaParametros.get(contador).contentEquals("codigo")){
-                Parametros = Parametros + "f.codigo = '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + And + "f.codigo = "+ ListaParametros.get(contador + 1);
+                And = " And ";
             }           
             contador = contador + 2;
         }        
         String Ordenacao = " order by f.razaosocial ";
         try {
-            ListaResultado = manager.createQuery("Select f.codigo, f.razaosocial, f.cnpj from fornecedor f " + Parametros + Ordenacao).getResultList();            
+            ListaResultado = manager.createQuery("Select f.codigo, f.razaosocial, f.cnpj, f.tempoentrega, f.idfornecedor from fornecedor f " + Parametros + Ordenacao).getResultList();            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return ListaResultado;
     }
 
+    public List PesquisarListaEmail(int id) {
+      String Parametros = "";
+        //ListaCargo = null;
+        List ListaResultado;
+        ListaResultado = new ArrayList();
+        String Ordenacao = " order by e.email ";
+        try {
+            ListaResultado = manager.createNativeQuery("select e.email from email e where e.idfornecedor = " + String.valueOf(id) + Ordenacao).getResultList();            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ListaResultado;
+    }
+        
     @Override
     public fornecedor CarregarObjeto(fornecedor object) {
         fornecedor f = new fornecedor();        
         f = manager.find(fornecedor.class, object.getIdfornecedor());  
         manager.clear();
         return f;
+    }
+    
+    public fornecedor CarregarObjetoPeloCodigo(fornecedor object){
+        return (fornecedor)manager.createNamedQuery("fornecedor.findByCodigo").setParameter("codigo", object.getCodigo()).getSingleResult();        
     }
 
 }

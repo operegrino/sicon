@@ -43,15 +43,13 @@ public class tela implements Serializable, InterfacePadraoClasse {
     private String nometela;
     @Column(name = "titulomenu")
     private String titulomenu;
-    @OneToMany(fetch=FetchType.EAGER)/*(cascade = CascadeType.ALL, mappedBy = "idtela")*/
+    @OneToMany(fetch=FetchType.EAGER)
     @JoinTable(
                 name="telabotao",
                 joinColumns= @JoinColumn(name="idtela", referencedColumnName="idtela"),
                 inverseJoinColumns= @JoinColumn(name="idbotao", referencedColumnName="idbotao")
                 )
     private Collection<botao> botaoCollection;
-    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "idtela")
-    private Collection<perfiltela> perfiltelaCollection;*/
 
     public tela() {
     }

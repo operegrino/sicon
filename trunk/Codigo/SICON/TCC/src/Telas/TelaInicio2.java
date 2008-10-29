@@ -19,7 +19,7 @@ import Telas.Formulario.TelaCardapio;
 import Telas.Formulario.TelaCargo;
 import Telas.Formulario.TelaComposicaoCentesimal;
 import Telas.Formulario.TelaContatoFornecedor;
-import Telas.Formulario.TelaEstoque;
+import Telas.Formulario.TelaMovimentacao;
 import Telas.Formulario.TelaFichaTecnica;
 import Telas.Formulario.TelaFormaPagamento;
 import Telas.Formulario.TelaFornecedor;
@@ -108,7 +108,7 @@ public class TelaInicio2 extends javax.swing.JFrame {
     TelaOrdemProducao telaOrdemProducao;
     TelaProduto telaProduto;
     TelaComposicaoCentesimal telaComposicaoCentesimal;
-    TelaEstoque telaEstoque;
+    TelaMovimentacao telaEstoque;
     TelaSaldoEstoque telaSaldoEstoque;
     TelaContatoFornecedor  telaContatoFornecedor;
     TelaFornecedor telaFornecedor; 
@@ -389,7 +389,7 @@ public class TelaInicio2 extends javax.swing.JFrame {
     }
     
     private void CliqueItemEstoque(java.awt.event.MouseEvent evt){
-        telaEstoque = new TelaEstoque();
+        telaEstoque = new TelaMovimentacao();
         SetAcessoBotoes("TelaEstoque", RetornaVetorBotoesPermitidos("TelaEstoque"));
         jtpTelas.add("Estoque", telaEstoque);
         CarregarBotaoAba();        

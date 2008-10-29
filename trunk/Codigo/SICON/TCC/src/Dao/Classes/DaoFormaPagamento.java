@@ -112,7 +112,7 @@ public class DaoFormaPagamento extends DaoAbstractGenerica implements DaoGeneric
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("nome")) {
-                Parametros = Parametros + "fm .nome ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + "fm .nome LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
             }else if (ListaParametros.get(contador).contentEquals("operacaobancaria")){
                 if (Integer.parseInt(ListaParametros.get(contador + 1)) == 0) {
                     Parametros = Parametros + "fm.operacaobancaria = false";

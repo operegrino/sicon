@@ -495,8 +495,6 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
             setComportamentoPanel(2);
             ClasseParaTela();
         } else {
-            //super.jtfRetorno.setText(String.valueOf(RetornaId(jtbPerfil.getSelectedRow())));  
-            //this.telaUsuario.LerPerfil(RetornaId(jtbPerfil.getSelectedRow()));
             Perfil.LerClasse(RetornaId(jtbPerfil.getSelectedRow()));
             telaUsuario.SetarCamposPerfil(Perfil.getIdperfil().toString(), Perfil.getNome());
             telaUsuario.HabilitaForm();            
@@ -529,7 +527,7 @@ private void jbtTelaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
  TelaCadastro = new TelaCadastroTela(this);
     TelaCadastro.setTipoVisualizacao(1);
     EscreverMetodosAbstratosTelasInternas();
-    super.CarregarTelaInterna(telaInterna, "Tela");      
+    super.CarregarTelaInterna(telaInterna, "Tela", null);      
     CarregarTela(telaInterna);
     //super.BloqueiaTela();
         try {

@@ -9,6 +9,7 @@ import Dao.Classes.DaoUnidadeMedida;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,12 @@ public class unidademedida implements Serializable, InterfacePadraoClasse {
     private Integer idunidademedida;
     @Column(name = "nome", nullable = false)
     private String nome;
+    @Column(name = "miligrama", nullable = false)
+    private boolean miligrama;
+    @Column(name = "grama", nullable = false)
+    private boolean grama;
+    @Column(name = "quilograma", nullable = false)
+    private boolean quilograma;    
 
     public unidademedida() {
     }
@@ -61,6 +68,32 @@ public class unidademedida implements Serializable, InterfacePadraoClasse {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public boolean getMiligrama(){
+        return this.miligrama;
+    }
+    
+    public void setMiligrama(boolean mili){
+        this.miligrama = mili; 
+    }
+    
+    
+    public boolean getgrama(){
+        return this.grama;
+    }
+    
+    public void setgrama(boolean g){
+        this.grama = g; 
+    }
+    
+    
+    public boolean getQuilograma(){
+        return this.quilograma;
+    }
+    
+    public void setQuilograma(boolean q){
+        this.quilograma = q; 
+    }    
 
     @Override
     public int hashCode() {
@@ -107,11 +140,19 @@ public class unidademedida implements Serializable, InterfacePadraoClasse {
         DaoUnidadeMedida daoUnidadeMedida = new DaoUnidadeMedida();
         return daoUnidadeMedida.Pesquisar(ListaParametros);     
     }
+    
+public Vector PesquisarVector(ArrayList<String> ListaParametros) {
+        DaoUnidadeMedida daoUnidadeMedida = new DaoUnidadeMedida();
+        return daoUnidadeMedida.PesquisarVector(ListaParametros);     
+    }    
 
     @Override
     public void LimparClasse() {
         setIdunidademedida(null);
-        setNome(null);        
+        setNome(null);  
+        setgrama(false);
+        setMiligrama(false);
+        setQuilograma(false);        
     }
 
     @Override
@@ -129,7 +170,10 @@ public class unidademedida implements Serializable, InterfacePadraoClasse {
     @Override
     public void CarregarClasse(Object object) throws Exception {
         this.setIdunidademedida(((unidademedida)object).getIdunidademedida());
-        this.setNome(((unidademedida)object).getNome());        
+        this.setNome(((unidademedida)object).getNome()); 
+        this.setMiligrama(((unidademedida)object).getMiligrama());
+        this.setgrama(((unidademedida)object).getgrama());
+        this.setQuilograma(((unidademedida)object).getQuilograma());
     }
 
 }
