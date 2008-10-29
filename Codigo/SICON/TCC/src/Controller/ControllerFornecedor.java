@@ -5,6 +5,7 @@
 
 package Controller;
 
+import Classes.Funcoes;
 import Classes.banco;
 import Classes.dadosbancarios;
 import Classes.fornecedor;
@@ -41,6 +42,10 @@ public class ControllerFornecedor extends ControllerAncestral implements Interfa
     @Override
     public boolean EventoExcluir() {
         return Fornecedor.Excluir();
+    }
+    
+    public boolean AoSairCampoCnpj(String Cnpj){
+        return Funcoes.ValidaCnpj(Cnpj);
     }
 
     @Override
@@ -104,6 +109,7 @@ public class ControllerFornecedor extends ControllerAncestral implements Interfa
     @Override
     public ArrayList DevolverDadosClasse() {
         ArrayList ArrayTela = new ArrayList();
+        ArrayTela.add(Fornecedor.getCodigo());
         ArrayTela.add(Fornecedor.getRazaosocial());
         ArrayTela.add(Fornecedor.getCnpj());
         ArrayTela.add(Fornecedor.getInscricaoestadual());
@@ -117,11 +123,19 @@ public class ControllerFornecedor extends ControllerAncestral implements Interfa
         ArrayTela.add(Fornecedor.getSite());
         ArrayTela.add(Fornecedor.getTempoentrega());
         ArrayList ListaDadosBancarios = new ArrayList();
-        ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getBanco().getIdbanco());
-        ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getAgencia());
-        ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getContacorrente());
-        ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getContacorrentedigito());
+        if (Fornecedor.getdadosbancarios() == null) {
+            ListaDadosBancarios.add("");
+            ListaDadosBancarios.add("");
+            ListaDadosBancarios.add("");
+            ListaDadosBancarios.add("");             
+        } else {
+            ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getBanco().getIdbanco());
+            ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getAgencia());
+            ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getContacorrente());
+            ListaDadosBancarios.add(Fornecedor.getdadosbancarios().getContacorrentedigito()); 
+        }
         ArrayTela.add(ListaDadosBancarios);
+        ArrayTela.add(Fornecedor.getIdfornecedor());        
         return ArrayTela;
     }
 

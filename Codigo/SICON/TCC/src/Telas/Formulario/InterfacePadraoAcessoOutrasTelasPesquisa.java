@@ -11,7 +11,7 @@ package Telas.Formulario;
  * @Objetivo: Quando a tela possuir botões que abrem outra tela na tela de pesquisa
  *            deverá ser implementada está interface; 
  */
-public interface InterfacePadraoAcessoOutrasTelasPesquisa {
+public interface InterfacePadraoAcessoOutrasTelasPesquisa extends InterfacePadraoTela{
     
     public void setComponenteTable(boolean Acesso);
 

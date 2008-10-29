@@ -133,7 +133,7 @@ public class DaoCargo extends DaoAbstractGenerica implements DaoGenericaCargo{
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("Descricao")) {
-                Parametros = Parametros + "c.descricao ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + "c.descricao LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
             }
             contador = contador + 2;
         }

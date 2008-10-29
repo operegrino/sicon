@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -31,6 +30,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private UsuarioSistema usuarioSistema;
     private mensagens Mensagens;
     private logsistema Log;
+    private Funcoes funcoes;
 
     /** Creates new form TelaLogin */
     public TelaLogin() {
@@ -41,6 +41,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Log = new logsistema();
         Mensagens = new mensagens();
         setVisibilidaCompAlterar(false);
+        funcoes = new Funcoes();
     }
 
     /** This method is called from within the constructor to
@@ -115,6 +116,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 jbtEntrarMousePressed(evt);
             }
         });
+        jbtEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtEntrarActionPerformed(evt);
+            }
+        });
         jbtEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jbtEntrarKeyPressed(evt);
@@ -123,10 +129,12 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jbtEntrar);
         jbtEntrar.setBounds(120, 90, 77, 23);
 
+        jtfLogin.setText("jrtm");
         jtfLogin.setName("jtfLogin"); // NOI18N
         getContentPane().add(jtfLogin);
         jtfLogin.setBounds(120, 40, 165, 20);
 
+        jpfSenha.setText("sicon");
         jpfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jpfSenhaKeyPressed(evt);
@@ -140,7 +148,6 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jlbUsuario);
         jlbUsuario.setBounds(30, 40, 80, 20);
 
-        jbtDesfazer.setIcon(new javax.swing.ImageIcon("C:\\Arquivos de programas\\Arquivos comuns\\Borland Shared\\Images\\GlyFX\\Icons\\PNG\\16x16\\redo16.png")); // NOI18N
         jbtDesfazer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtDesfazer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -201,6 +208,10 @@ private void jpfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
   }
 }//GEN-LAST:event_jpfSenhaKeyPressed
 
+private void jbtEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtEntrarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jbtEntrarActionPerformed
+
 private void setLog(){
     Log.setUsuario(usuarioSistema.getUsuario());
     GregorianCalendar data = new GregorianCalendar();
@@ -260,6 +271,7 @@ public void setLabelStatus(String Texto){
 
 public void setProgressao(){
     jpbStatus.setValue(jpbStatus.getValue() + 1);
+    //jpbStatus.setPro
 }
 
 public void setProgressaoMaximum(int valor) {

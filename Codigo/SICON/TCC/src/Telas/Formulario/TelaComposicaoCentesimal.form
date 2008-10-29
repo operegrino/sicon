@@ -10,7 +10,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,21,0,0,3,-93"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-20,0,0,3,19"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -44,7 +44,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="61" max="32767" attributes="1"/>
@@ -62,7 +62,7 @@
                                   <Component id="jtfVitaminaC" pref="216" max="32767" attributes="2"/>
                                   <Component id="jtfCalcio" pref="216" max="32767" attributes="2"/>
                                   <Component id="jtfProteina" pref="216" max="32767" attributes="2"/>
-                                  <Component id="jTextField2" alignment="0" min="-2" pref="216" max="-2" attributes="2"/>
+                                  <Component id="jtfEnergia" alignment="0" min="-2" pref="216" max="-2" attributes="2"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -72,7 +72,7 @@
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtfCarboidrato" alignment="0" pref="202" max="32767" attributes="3"/>
+                                  <Component id="jtfCarboidrato" alignment="0" pref="202" max="32767" attributes="2"/>
                                   <Component id="jtfLipideos" alignment="0" pref="202" max="32767" attributes="2"/>
                                   <Component id="jtfFerro" alignment="0" pref="202" max="32767" attributes="2"/>
                               </Group>
@@ -80,90 +80,96 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jtfProduto" min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="jbtProduto" min="-2" pref="20" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edPerfilDesc" pref="446" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="edDescProduto" pref="446" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlb1Produto" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jtfProduto" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jbtProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="edPerfilDesc" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtfCarboidrato" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jtfProteina" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlb1Lipideos" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jtfLipideos" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jlb1Ferro" alignment="3" pref="25" max="32767" attributes="1"/>
-                                  <Component id="jtfFerro" alignment="3" min="-2" max="-2" attributes="1"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Component id="jtfCalcio" min="-2" max="-2" attributes="1"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlb1VitaminaC" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jtfVitaminaC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlb1Produto" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtfProduto" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jbtProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edDescProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="jtfEnergia" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfCarboidrato" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="jtfProteina" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlb1Lipideos" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtfLipideos" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jlb1Ferro" alignment="3" pref="25" max="32767" attributes="1"/>
+                                          <Component id="jtfFerro" alignment="3" min="-2" max="-2" attributes="1"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Component id="jtfCalcio" min="-2" max="-2" attributes="1"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jlb1VitaminaC" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="jtfVitaminaC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="jlb1Proteina" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jlb1Energia" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace pref="56" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jlb1Carboidrato" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="jlb1Calcio" min="-2" max="-2" attributes="1"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="89" pref="89" max="89" attributes="0"/>
-                      <Component id="jlb1Proteina" min="-2" pref="20" max="-2" attributes="0"/>
-                      <EmptySpace min="216" pref="216" max="216" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="59" pref="59" max="59" attributes="0"/>
-                      <Component id="jlb1Energia" min="-2" pref="20" max="-2" attributes="0"/>
-                      <EmptySpace pref="246" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="58" pref="58" max="58" attributes="0"/>
-                      <Component id="jlb1Carboidrato" min="-2" pref="20" max="-2" attributes="0"/>
-                      <EmptySpace min="247" pref="247" max="247" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="118" pref="118" max="118" attributes="0"/>
-                      <Component id="jlb1Calcio" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace min="193" pref="193" max="193" attributes="0"/>
+                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jtfEnergia">
               <Properties>
                 <Property name="columns" type="int" value="6"/>
+                <Property name="name" type="java.lang.String" value="jtfEnergia" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jlb1Energia">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="* Energia(Kcal)" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="jlb1Energia" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jbtProduto">
@@ -174,6 +180,9 @@
                   <Dimension value="[73, 19]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtProdutoMousePressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlb1Carboidrato">
               <Properties>
@@ -226,7 +235,7 @@
             <Component class="javax.swing.JLabel" name="jlb1Ferro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Ferro(mg)" noResource="true"/>
-                <Property name="name" type="java.lang.String" value="jtfLipideos" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="jlb1Ferro" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jtfFerro">
@@ -261,7 +270,7 @@
                 <Property name="name" type="java.lang.String" value="jtfProduto" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edPerfilDesc">
+            <Component class="javax.swing.JTextField" name="edDescProduto">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -275,7 +284,7 @@
                   </Border>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
-                <Property name="name" type="java.lang.String" value="edPerfilDesc" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="edDescProduto" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -325,10 +334,10 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jtfProduto1" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <Component id="jtfProdutoPesq" min="-2" pref="60" max="-2" attributes="0"/>
                                           <Component id="jbtProduto1" min="-2" pref="20" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField11" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="jtfProteinaPesq" alignment="0" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -337,22 +346,23 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="1">
-                                  <Component id="jTextField20" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <Component id="jtfFerroPesq" min="-2" pref="81" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField13" alignment="1" pref="68" max="32767" attributes="1"/>
-                              <Component id="jTextField12" pref="68" max="32767" attributes="1"/>
-                              <Component id="jTextField14" pref="68" max="32767" attributes="1"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jtfVitaminaCPesq" max="32767" attributes="1"/>
+                              <Component id="jtfLipideosPesq" alignment="0" max="32767" attributes="1"/>
+                              <Component id="jtfEnergiaPesq" alignment="0" pref="81" max="32767" attributes="1"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="436" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -367,10 +377,10 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField17" alignment="0" pref="75" max="32767" attributes="1"/>
-                                      <Component id="jTextField16" alignment="0" pref="75" max="32767" attributes="1"/>
+                                      <Component id="jtfCalcioPesq" alignment="0" pref="77" max="32767" attributes="1"/>
+                                      <Component id="jtfCarboidratoPesq" alignment="0" pref="77" max="32767" attributes="1"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="412" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="417" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -382,28 +392,28 @@
                           <EmptySpace pref="16" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jtfProduto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfProdutoPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="jbtProduto1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfCarboidratoPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtfEnergiaPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfProteinaPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="jLabel13" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfCalcioPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtfLipideosPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -411,9 +421,9 @@
                               <Component id="jLabel18" min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="jLabel16" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jTextField20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfFerroPesq" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfVitaminaCPesq" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -458,22 +468,24 @@
                     <Property name="text" type="java.lang.String" value="Produto" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField11">
+                <Component class="javax.swing.JTextField" name="jtfProteinaPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfProteinaPesq" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField20">
+                <Component class="javax.swing.JTextField" name="jtfFerroPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfFerroPesq" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtfProduto1">
+                <Component class="javax.swing.JTextField" name="jtfProdutoPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
-                    <Property name="name" type="java.lang.String" value="jtfProduto" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="jtfProdutoPesq" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jbtProduto1">
@@ -485,24 +497,28 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="jtfEnergiaPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfEnergiaPesq" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField13">
+                <Component class="javax.swing.JTextField" name="jtfVitaminaCPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfVitaminaCPesq" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField14">
+                <Component class="javax.swing.JTextField" name="jtfLipideosPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfLipideosPesq" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField16">
+                <Component class="javax.swing.JTextField" name="jtfCarboidratoPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfCarboidratoPesq" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
@@ -511,9 +527,10 @@
                     <Property name="text" type="java.lang.String" value="Calcio(mg)" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField17">
+                <Component class="javax.swing.JTextField" name="jtfCalcioPesq">
                   <Properties>
                     <Property name="columns" type="int" value="6"/>
+                    <Property name="name" type="java.lang.String" value="jtfCalcioPesq" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -530,7 +547,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jtCardapio">
+                <Component class="javax.swing.JTable" name="jtbComposicao">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="4">
@@ -548,6 +565,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtbComposicaoMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

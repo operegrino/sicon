@@ -103,10 +103,14 @@ public class TelaUnidadeMedida extends TelaAncestral implements InterfacePadraoT
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jpnTela = new javax.swing.JPanel();
         jpnCadastro = new javax.swing.JPanel();
         jlb1Nome = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
+        jrbMiligrama = new javax.swing.JRadioButton();
+        jrbGrama = new javax.swing.JRadioButton();
+        jrbQuilograma = new javax.swing.JRadioButton();
         jpnPesquisa = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbUnidadeMedida = new javax.swing.JTable();
@@ -125,6 +129,21 @@ public class TelaUnidadeMedida extends TelaAncestral implements InterfacePadraoT
 
         jtfNome.setName("jtfNome"); // NOI18N
 
+        jrbMiligrama.setBackground(new java.awt.Color(243, 243, 243));
+        buttonGroup1.add(jrbMiligrama);
+        jrbMiligrama.setText("Miligrama");
+        jrbMiligrama.setName("jrbMiligrama"); // NOI18N
+
+        jrbGrama.setBackground(new java.awt.Color(243, 243, 243));
+        buttonGroup1.add(jrbGrama);
+        jrbGrama.setText("Grama");
+        jrbGrama.setName("jrbGrama"); // NOI18N
+
+        jrbQuilograma.setBackground(new java.awt.Color(243, 243, 243));
+        buttonGroup1.add(jrbQuilograma);
+        jrbQuilograma.setText("Quilograma");
+        jrbQuilograma.setName("jrbQuilograma"); // NOI18N
+
         javax.swing.GroupLayout jpnCadastroLayout = new javax.swing.GroupLayout(jpnCadastro);
         jpnCadastro.setLayout(jpnCadastroLayout);
         jpnCadastroLayout.setHorizontalGroup(
@@ -133,8 +152,17 @@ public class TelaUnidadeMedida extends TelaAncestral implements InterfacePadraoT
                 .addGap(33, 33, 33)
                 .addComponent(jlb1Nome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
-                .addGap(88, 88, 88))
+                .addGroup(jpnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnCadastroLayout.createSequentialGroup()
+                        .addComponent(jrbMiligrama)
+                        .addGap(10, 10, 10)
+                        .addComponent(jrbGrama)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrbQuilograma)
+                        .addGap(283, 283, 283))
+                    .addGroup(jpnCadastroLayout.createSequentialGroup()
+                        .addComponent(jtfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                        .addGap(88, 88, 88))))
         );
         jpnCadastroLayout.setVerticalGroup(
             jpnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +171,12 @@ public class TelaUnidadeMedida extends TelaAncestral implements InterfacePadraoT
                 .addGroup(jpnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlb1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbMiligrama)
+                    .addComponent(jrbGrama)
+                    .addComponent(jrbQuilograma))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         jpnTela.add(jpnCadastro, java.awt.BorderLayout.CENTER);
@@ -232,6 +265,7 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlb1Descricao1;
@@ -239,6 +273,9 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
     private javax.swing.JPanel jpnCadastro;
     private javax.swing.JPanel jpnPesquisa;
     private javax.swing.JPanel jpnTela;
+    private javax.swing.JRadioButton jrbGrama;
+    private javax.swing.JRadioButton jrbMiligrama;
+    private javax.swing.JRadioButton jrbQuilograma;
     private javax.swing.JTable jtbUnidadeMedida;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNomePesq;
@@ -267,13 +304,31 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
     @Override
     public ArrayList<Object> TelaParaController() {
         ArrayList Lista = new ArrayList();
-        Lista.add(jtfNome.getText());
+        Lista.add(jtfNome.getText());        
+        if (jrbMiligrama.isSelected()) {
+            Lista.add(0);
+        } else Lista.add(1);
+        if (jrbGrama.isSelected()) {
+            Lista.add(0);
+        } else Lista.add(1);
+        if (jrbQuilograma.isSelected()) {
+            Lista.add(0);
+        } else Lista.add(1);      
         return Lista;
     }
 
     @Override
     public void ControllerParaTela(ArrayList<Object> Objeto) {
         jtfNome.setText(Objeto.get(0).toString());
+        if (Integer.parseInt(Objeto.get(1).toString()) == 0) {
+            jrbMiligrama.setSelected(true);
+        } else jrbGrama.setSelected(false);
+        if (Integer.parseInt(Objeto.get(2).toString()) == 0) {
+            jrbGrama.setSelected(true);
+        } else jrbMiligrama.setSelected(false);
+        if (Integer.parseInt(Objeto.get(3).toString()) == 0) {
+            jrbQuilograma.setSelected(true);
+        } else jrbQuilograma.setSelected(false);
     }
 
 }

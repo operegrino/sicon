@@ -11,6 +11,7 @@ import Dao.Interfaces.DaoAbstractGenerica;
 import Dao.Interfaces.DaoGenericaUnidadeMedida;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import javax.persistence.EntityTransaction;
@@ -112,7 +113,7 @@ public class DaoUnidadeMedida extends DaoAbstractGenerica implements DaoGenerica
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("nome")) {
-                Parametros = Parametros + "u.nome ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + "u.nome LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
             }                       
             contador = contador + 2;
         }        
@@ -129,6 +130,36 @@ public class DaoUnidadeMedida extends DaoAbstractGenerica implements DaoGenerica
             manager.clear();
             return ListaResultado;
         }
+    }
+    
+    public Vector PesquisarVector(ArrayList<String> ListaParametros) {
+     String Parametros = "";
+        //ListaCargo = null;
+        Vector ListaResultado; 
+        ListaResultado = new Vector();
+        int contador = 0;
+        if (!(ListaParametros.isEmpty())){
+            Parametros = " where ";
+        }
+        while (ListaParametros.size() > contador) {
+            if (ListaParametros.get(contador).contentEquals("nome")) {
+                Parametros = Parametros + "u.nome LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+            }                       
+            contador = contador + 2;
+        }        
+        String Ordenacao = " order by u.nome ";
+        try {
+            ListaResultado = (Vector)manager.createQuery("Select u.idunidademedida, u.nome, u.miligrama, u.grama, u.quilograma from unidademedida u " + Parametros + Ordenacao).getResultList();          
+        } catch (Exception e) {
+            Logger logger = Logger.getLogger("Usuario : " + String.valueOf(UsuarioSistema.getidLogEntrada()));        
+            FileHandler fh = new FileHandler("Exceções do Sistema.txt");   
+            logger.addHandler(fh);      
+            logger.warning(e.getMessage());               
+            e.printStackTrace();                        
+        } finally {
+            manager.clear();
+            return ListaResultado;
+        }    
     }
 
     @Override

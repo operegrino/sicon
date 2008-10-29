@@ -30,6 +30,8 @@ public class mensagens implements Serializable {
     private Integer idmensagem;
     @Column(name = "mensagem", nullable = false)
     private String mensagem;
+    @Column(name = "tipomensagem", nullable = false)
+    private Integer tipomensagem;
 
     public mensagens() {
     }
@@ -59,6 +61,14 @@ public class mensagens implements Serializable {
         this.mensagem = mensagem;
     }
     
+    public Integer getTipoMensagem() {
+        return tipomensagem;
+    }
+
+    public void setTipoMensagem(Integer tipo) {
+        this.tipomensagem = tipo;
+    }
+    
     public String RetornaMensagem(int idMensagem) {
         LerClasse(idMensagem);
         return getMensagem();
@@ -74,6 +84,7 @@ public class mensagens implements Serializable {
         if (!(Objeto.isEmpty())) {
             this.setIdmensagem(((mensagens)Objeto.get(0)).getIdmensagem()); 
             this.setMensagem(((mensagens)Objeto.get(0)).getMensagem());
+            this.setTipoMensagem(Integer.parseInt(((mensagens)Objeto.get(0)).getTipoMensagem().toString()));
             return true;
         } else
             return false;

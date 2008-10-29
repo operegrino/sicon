@@ -250,7 +250,7 @@ private void jtbBancoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:ev
             if (super.getTipoVisualizacao() == 0) {
                 LimparFormulario(jpnCadastro);
                 ControllerParaTela(Controller.EventoSelecionar(RetornaId(jtbBanco.getSelectedRow())));
-                super.Operacao = 1;
+                super.Operacao = 1;                
                 setComportamento(2); 
                 setComportamentoPanel(2);
                 super.setLocalizacao(1);

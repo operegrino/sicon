@@ -52,6 +52,7 @@ public class TelaUsuario extends TelaAncestral implements InterfacePadraoAcessoO
     /** Creates new form BeanForm */
     public TelaUsuario() {
         initComponents();     
+        IniciarTela();
     }
     
     @Override
@@ -174,25 +175,7 @@ public class TelaUsuario extends TelaAncestral implements InterfacePadraoAcessoO
 }    
     
     
-    /*@Override
-    public void TelaParaClasse() {
-        Usuario.setNomeusuario(jtfUsuario.getText());
-        Usuario.Perfil.LerClasse(Integer.parseInt(jtfPerfil.getText()));
-        Usuario.Cargo.LerClasse(Integer.parseInt(jtfCargo.getText()));
-        Usuario.setLogin(jtfLogin.getText());
-        Usuario.setSenha(Funcoes.CharToString(jpfSenha.getPassword()));
-    }
-    
-    @Override
-    public void ClasseParaTela() {
-        jtfUsuario.setText(Usuario.getNomeusuario());
-        jtfPerfil.setText(String.valueOf(Usuario.Perfil.getIdperfil()));
-        edPerfilDesc.setText(Usuario.Perfil.getNome());
-        jtfCargo.setText(String.valueOf(Usuario.Cargo.getIdcargo()));        
-        edCargoDesc.setText(Usuario.Cargo.getDescricao());
-        jtfLogin.setText(Usuario.getLogin());
-        jpfSenha.setText(Usuario.getSenha());
-    }*/
+ 
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -480,7 +463,7 @@ private void InstaciaTelaPerfil(){
     telaPerfil = new TelaPerfil(); 
     telaPerfil.setTipoVisualizacao(1); 
     EscreverMetodosAbstratosTelasInternas();
-    super.CarregarTelaInterna(telaInterna, "Perfil");        
+    super.CarregarTelaInterna(telaInterna, "Perfil", null);        
     CarregarTelaPerfil(telaInterna);
         try {
             telaInterna.setSelected(true);
@@ -529,7 +512,7 @@ private void jbtCargoPesqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRS
         telaCargo = new TelaCargo(); 
         telaCargo.setTipoVisualizacao(1); 
         EscreverMetodosAbstratosTelasInternas();
-        super.CarregarTelaInterna(telaInterna, "Cargo");        
+        super.CarregarTelaInterna(telaInterna, "Cargo", null);        
         CarregarTela(telaInterna);
             try {
                 telaInterna.setSelected(true);

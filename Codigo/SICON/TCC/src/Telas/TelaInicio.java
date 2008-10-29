@@ -6,11 +6,14 @@
 
 package Telas;
 
+import Classes.Configuracoes;
 import Classes.UsuarioSistema;
 import Classes.logsistema;
 import Classes.perfiltela;
 import Classes.usuario;
+import Dao.Classes.DaoConfiguracoes;
 import Telas.Formulario.ButtonTabComponent;
+import Telas.Formulario.TelaAncestral;
 import Telas.Formulario.TelaAvaliacaoPedido;
 import Telas.Formulario.TelaBanco;
 import Telas.Formulario.TelaBotao;
@@ -18,8 +21,9 @@ import Telas.Formulario.TelaCadastroTela;
 import Telas.Formulario.TelaCardapio;
 import Telas.Formulario.TelaCargo;
 import Telas.Formulario.TelaComposicaoCentesimal;
+import Telas.Formulario.TelaConfiguracoes;
 import Telas.Formulario.TelaContatoFornecedor;
-import Telas.Formulario.TelaEstoque;
+import Telas.Formulario.TelaMovimentacao;
 import Telas.Formulario.TelaFichaTecnica;
 import Telas.Formulario.TelaFormaPagamento;
 import Telas.Formulario.TelaFornecedor;
@@ -31,9 +35,11 @@ import Telas.Formulario.TelaPagamentoFornecedor;
 import Telas.Formulario.TelaPedido;
 import Telas.Formulario.TelaPerfil;
 import Telas.Formulario.TelaProduto;
+import Telas.Formulario.TelaRefeicao;
 import Telas.Formulario.TelaSaldoEstoque;
 import Telas.Formulario.TelaUnidadeMedida;
 import Telas.Formulario.TelaUsuario;
+import java.awt.Component;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -102,6 +108,8 @@ public class TelaInicio extends javax.swing.JFrame {
     JMenuItem jmiPerfil;
     JMenuItem jmiCadastroTela;
     JMenuItem jmiUsuario;
+    JMenuItem jmiRefeicao;
+    JMenuItem jmiConfiguracoes;
     
     //Todas as Telas
     TelaBanco telaBanco;
@@ -113,7 +121,7 @@ public class TelaInicio extends javax.swing.JFrame {
     TelaOrdemProducao telaOrdemProducao;
     TelaProduto telaProduto;
     TelaComposicaoCentesimal telaComposicaoCentesimal;
-    TelaEstoque telaEstoque;
+    TelaMovimentacao telaEstoque;
     TelaSaldoEstoque telaSaldoEstoque;
     TelaContatoFornecedor  telaContatoFornecedor;
     TelaFornecedor telaFornecedor; 
@@ -126,7 +134,9 @@ public class TelaInicio extends javax.swing.JFrame {
     TelaCargo telaCargo;
     TelaPerfil telaPerfil;
     TelaCadastroTela telaCadastroTela;
-    TelaUsuario  telaUsuario;    
+    TelaUsuario  telaUsuario;   
+    TelaRefeicao telaRefeicao;
+    TelaConfiguracoes telaConfiguracoes;
     
     /** Creates new form TelaInicio */
     public TelaInicio() {
@@ -141,6 +151,21 @@ public class TelaInicio extends javax.swing.JFrame {
     
     public int getContAbas(int ContAbas){
         return ContAbas;
+    }
+        
+    private boolean VerificaTelaInstanciada(String TelaTitulo){
+        int Cont = 0;
+        boolean Achou = false;
+        for (Object Comp : jtpTelas.getComponents()) {
+             if (Comp instanceof TelaAncestral) {                 
+                 if (((TelaAncestral)Comp).getTitulo().equals(TelaTitulo)) {
+                    jtpTelas.setSelectedIndex(Cont);
+                    Achou = true;
+                 }
+             Cont++;        
+             }
+        }
+        return Achou;
     }
     
     public void CarregarBotaoAba(){
@@ -159,7 +184,7 @@ public class TelaInicio extends javax.swing.JFrame {
         //Caso for administrador carrega todos os formularios
         if (ListaAcesso.get(0).getPerfil().getAdministrador() == true) {
             this.telaLogin.setProgressaoMaximum(23);
-            for (int i = 0; i < 23; i++) {         
+            for (int i = 0; i < 25; i++) {         
                 this.telaLogin.setProgressao();
                 CriaMenuIndicado(i);
             }    
@@ -167,7 +192,15 @@ public class TelaInicio extends javax.swing.JFrame {
             IdentificaAcesso();
             CriarMenus();
         }
-        
+        CarregarConfiguracoes();        
+    }
+    
+    public void CarregarConfiguracoes(){
+        Configuracoes objConf = new Configuracoes();
+        objConf.setIdConfiguracoes(1);
+        DaoConfiguracoes daoConf = new DaoConfiguracoes();        
+        objConf = daoConf.CarregarObjeto(objConf);
+        objConf.setConfiguracoesStatic();
     }
     
     private Vector RetornaVetorBotoesPermitidos(String Tela){
@@ -196,7 +229,7 @@ public class TelaInicio extends javax.swing.JFrame {
     
     private void CriarMenuCadastro(){
         jmnCadastro = new JMenu();
-        jmnCadastro.setText("cadastro");
+        jmnCadastro.setText("Cadastro");
         jmbPrincipal.add(jmnCadastro);   
         CriouMenuCadastro = true;
     }
@@ -235,15 +268,17 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemCargo(java.awt.event.MouseEvent evt){
-        telaCargo = new TelaCargo();
-        SetAcessoBotoes("TelaCargo", RetornaVetorBotoesPermitidos("TelaCargo"));
-        jtpTelas.add("Cargo", telaCargo);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Cargo"))){
+            telaCargo = new TelaCargo();
+            SetAcessoBotoes("TelaCargo", RetornaVetorBotoesPermitidos("TelaCargo"));
+            jtpTelas.add("Cargo", telaCargo);
+            CarregarBotaoAba();        
+        }
     }
 
     private void CriarMenuItemBanco(){
         jmiBanco = new JMenuItem();
-        jmiBanco.setText("banco");
+        jmiBanco.setText("Banco");
         jmnCadastro.add(jmiBanco);
         jmiBanco.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -253,11 +288,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemBanco(java.awt.event.MouseEvent evt){
-        telaBanco = new TelaBanco();     
-        SetAcessoBotoes("TelaBanco", RetornaVetorBotoesPermitidos("TelaBanco"));
-        jtpTelas.add("Banco", telaBanco);
-        
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Banco"))){        
+            telaBanco = new TelaBanco();     
+            SetAcessoBotoes("TelaBanco", RetornaVetorBotoesPermitidos("TelaBanco"));
+            jtpTelas.add("Banco", telaBanco);        
+            CarregarBotaoAba();    
+        }
     }    
     
     private void CriarMenuItemFormaPagamento(){
@@ -272,10 +308,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemFormaPagamento(java.awt.event.MouseEvent evt){
-        telaFormaPagamento = new TelaFormaPagamento();
-        SetAcessoBotoes("TelaFormaPagamento", RetornaVetorBotoesPermitidos("TelaFormaPagamento"));
-        jtpTelas.add("Forma de Pagamento", telaFormaPagamento);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Forma de Pagamento"))){        
+            telaFormaPagamento = new TelaFormaPagamento();
+            SetAcessoBotoes("TelaFormaPagamento", RetornaVetorBotoesPermitidos("TelaFormaPagamento"));
+            jtpTelas.add("Forma de Pagamento", telaFormaPagamento);
+            CarregarBotaoAba();  
+        }
     }        
     
     private void CriarMenuItemMotivo(){
@@ -287,14 +325,36 @@ public class TelaInicio extends javax.swing.JFrame {
                 CliqueItemMotivo(evt);
             }
         });  
-    }
+    }    
     
     private void CliqueItemMotivo(java.awt.event.MouseEvent evt){
-        telaMotivo = new TelaMotivo();
-        SetAcessoBotoes("TelaMotivo", RetornaVetorBotoesPermitidos("TelaMotivo"));
-        jtpTelas.add("Motivo", telaMotivo);
-        CarregarBotaoAba();        
-    }        
+        if (!(VerificaTelaInstanciada("Motivo"))){        
+            telaMotivo = new TelaMotivo();
+            SetAcessoBotoes("TelaMotivo", RetornaVetorBotoesPermitidos("TelaMotivo"));
+            jtpTelas.add("Motivo", telaMotivo);
+            CarregarBotaoAba();        
+        }
+    }  
+    
+    private void CriarMenuItemRefeicao(){
+        jmiRefeicao = new JMenuItem();
+        jmiRefeicao.setText("Refeição");
+        jmnCardapio.add(jmiRefeicao);
+        jmiRefeicao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CliqueItemRefeicao(evt);
+            }
+        });  
+    }    
+    
+    private void CliqueItemRefeicao(java.awt.event.MouseEvent evt){
+        if (!(VerificaTelaInstanciada("Refeição"))){
+            telaRefeicao = new TelaRefeicao();
+            SetAcessoBotoes("TelaRefeicao", RetornaVetorBotoesPermitidos("TelaRefeicao"));
+            jtpTelas.add("Refeição", telaRefeicao);
+            CarregarBotaoAba();        
+        }
+    }         
     
     private void CriarMenuItemUnidadeMedida(){
         jmiUnidadeMedida = new JMenuItem();
@@ -308,10 +368,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemUnidadeMedida(java.awt.event.MouseEvent evt){
-        telaUnidadeMedida = new TelaUnidadeMedida();
-        SetAcessoBotoes("TelaUnidadeMedida", RetornaVetorBotoesPermitidos("TelaUnidadeMedida"));
-        jtpTelas.add("Unidade de Medida", telaUnidadeMedida);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Unidade de Medida"))){
+            telaUnidadeMedida = new TelaUnidadeMedida();
+            SetAcessoBotoes("TelaUnidadeMedida", RetornaVetorBotoesPermitidos("TelaUnidadeMedida"));
+            jtpTelas.add("Unidade de Medida", telaUnidadeMedida);
+            CarregarBotaoAba();        
+        }
     }           
     
     private void CriarMenuItemCardapio(){
@@ -326,10 +388,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemCardapio(java.awt.event.MouseEvent evt){
-        telaCardapio = new TelaCardapio();
-        SetAcessoBotoes("TelaCardapio", RetornaVetorBotoesPermitidos("TelaCardapio"));
-        jtpTelas.add("Cardápio", telaCardapio);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Cardápio"))){        
+            telaCardapio = new TelaCardapio();
+            telaCardapio.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaCardapio", RetornaVetorBotoesPermitidos("TelaCardapio"));
+            jtpTelas.add("Cardápio", telaCardapio);
+            CarregarBotaoAba();        
+        }
     }        
     
     private void CriarMenuItemFichaTecnica(){
@@ -344,10 +409,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemFichaTecnica(java.awt.event.MouseEvent evt){
-        telaFichaTecnica = new TelaFichaTecnica();
-        SetAcessoBotoes("TelaFichaTecnica", RetornaVetorBotoesPermitidos("TelaFichaTecnica"));
-        jtpTelas.add("Ficha Técnica", telaFichaTecnica);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Ficha Técnica"))){
+            telaFichaTecnica = new TelaFichaTecnica();
+            telaFichaTecnica.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaFichaTecnica", RetornaVetorBotoesPermitidos("TelaFichaTecnica"));
+            jtpTelas.add("Ficha Técnica", telaFichaTecnica);
+            CarregarBotaoAba();        
+        }     
     }         
     
     private void CriarMenuItemOrdemProducao(){
@@ -362,10 +430,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemOrdemProducao(java.awt.event.MouseEvent evt){
-        telaOrdemProducao = new TelaOrdemProducao();
-        SetAcessoBotoes("TelaOrdemProducao", RetornaVetorBotoesPermitidos("TelaOrdemProducao"));
-        jtpTelas.add("Ordem de Produção", telaOrdemProducao);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Ordem de Produção"))){        
+            telaOrdemProducao = new TelaOrdemProducao();
+            telaOrdemProducao.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaOrdemProducao", RetornaVetorBotoesPermitidos("TelaOrdemProducao"));
+            jtpTelas.add("Ordem de Produção", telaOrdemProducao);
+            CarregarBotaoAba();        
+        }
     }          
     
     private void CriarMenuItemProduto(){
@@ -380,10 +451,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemProduto(java.awt.event.MouseEvent evt){
-        telaProduto = new TelaProduto();
-        SetAcessoBotoes("TelaProduto", RetornaVetorBotoesPermitidos("TelaProduto"));
-        jtpTelas.add("Produto", telaProduto);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Produto"))){       
+            telaProduto = new TelaProduto();
+            telaProduto.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaProduto", RetornaVetorBotoesPermitidos("TelaProduto"));
+            jtpTelas.add("Produto", telaProduto);
+            CarregarBotaoAba();        
+        }
     }        
     
     private void CriarMenuItemEstoque(){
@@ -398,10 +472,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemEstoque(java.awt.event.MouseEvent evt){
-        telaEstoque = new TelaEstoque();
-        SetAcessoBotoes("TelaEstoque", RetornaVetorBotoesPermitidos("TelaEstoque"));
-        jtpTelas.add("Estoque", telaEstoque);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Estoque"))){        
+            telaEstoque = new TelaMovimentacao();
+            telaEstoque.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaEstoque", RetornaVetorBotoesPermitidos("TelaEstoque"));
+            jtpTelas.add("Estoque", telaEstoque);
+            CarregarBotaoAba();        
+        }
     }            
     
     private void CriarMenuItemComposicaoCentesimal(){
@@ -416,10 +493,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemComposicaoCentesimal(java.awt.event.MouseEvent evt){
-        telaComposicaoCentesimal = new TelaComposicaoCentesimal();
-        SetAcessoBotoes("TelaComposicaoCentesimal", RetornaVetorBotoesPermitidos("TelaComposicaoCentesimal"));
-        jtpTelas.add("Composição Centesimal", telaComposicaoCentesimal);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Composição Centesimal"))){        
+            telaComposicaoCentesimal = new TelaComposicaoCentesimal();
+            telaComposicaoCentesimal.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaComposicaoCentesimal", RetornaVetorBotoesPermitidos("TelaComposicaoCentesimal"));
+            jtpTelas.add("Composição Centesimal", telaComposicaoCentesimal);
+            CarregarBotaoAba();        
+        }
     }       
     
     private void CriarMenuItemSaldoEstoque(){
@@ -434,10 +514,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemSaldoEstoque(java.awt.event.MouseEvent evt){
-        telaSaldoEstoque = new TelaSaldoEstoque();
-        SetAcessoBotoes("TelaSaldoEstoque", RetornaVetorBotoesPermitidos("TelaSaldoEstoque"));
-        jtpTelas.add("Saldo do Estoque", telaSaldoEstoque);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Saldo do Estoque"))){
+            telaSaldoEstoque = new TelaSaldoEstoque();
+            telaSaldoEstoque.TelaPrincipal = jdpTelas;
+            SetAcessoBotoes("TelaSaldoEstoque", RetornaVetorBotoesPermitidos("TelaSaldoEstoque"));
+            jtpTelas.add("Saldo do Estoque", telaSaldoEstoque);
+            CarregarBotaoAba();        
+        }
     }         
     
     private void CriarMenuItemContatoFornecedor(){
@@ -452,15 +535,18 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemContatoFornecedor(java.awt.event.MouseEvent evt){
-        telaContatoFornecedor = new TelaContatoFornecedor();
-        SetAcessoBotoes("TelaContatoFornecedor", RetornaVetorBotoesPermitidos("TelaContatoFornecedor"));
-        jtpTelas.add("Contato do Fornecedor", telaContatoFornecedor);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Contato do Fornecedor"))){        
+            telaContatoFornecedor = new TelaContatoFornecedor();
+            SetAcessoBotoes("TelaContatoFornecedor", RetornaVetorBotoesPermitidos("TelaContatoFornecedor"));
+            telaContatoFornecedor.setDesktopPane(jdpTelas);
+            jtpTelas.add("Contato do Fornecedor", telaContatoFornecedor);
+            CarregarBotaoAba();        
+        }
     }   
     
     private void CriarMenuItemFornecedor(){
         jmiFornecedor = new JMenuItem();
-        jmiFornecedor.setText("Fornecedor");
+        jmiFornecedor.setText("Fornecedor");        
         jmnFornecedor.add(jmiFornecedor);
         jmiFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -470,10 +556,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemFornecedor(java.awt.event.MouseEvent evt){
-        telaFornecedor = new TelaFornecedor();
-        SetAcessoBotoes("telaFornecedor", RetornaVetorBotoesPermitidos("telaFornecedor"));
-        jtpTelas.add("Fornecedor", telaFornecedor);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Fornecedor"))){        
+            telaFornecedor = new TelaFornecedor();
+            telaFornecedor.setDesktopPane(jdpTelas);            
+            SetAcessoBotoes("TelaFornecedor", RetornaVetorBotoesPermitidos("TelaFornecedor"));
+            jtpTelas.add("Fornecedor", telaFornecedor);
+            CarregarBotaoAba();        
+        }
     }     
     
     private void CriarMenuItemPagamentoFornecedor(){
@@ -488,10 +577,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemPagamentoFornecedor(java.awt.event.MouseEvent evt){
-        telaPagamentoFornecedor = new TelaPagamentoFornecedor();
-        SetAcessoBotoes("TelaPagamentoFornecedor", RetornaVetorBotoesPermitidos("TelaPagamentoFornecedor"));
-        jtpTelas.add("Forma de Pagamento do Fornecedor", telaPagamentoFornecedor);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Forma de Pagamento do Fornecedor"))){        
+            telaPagamentoFornecedor = new TelaPagamentoFornecedor();
+            telaPagamentoFornecedor.setDesktopPane(jdpTelas);        
+            SetAcessoBotoes("TelaPagamentoFornecedor", RetornaVetorBotoesPermitidos("TelaPagamentoFornecedor"));
+            jtpTelas.add("Forma de Pagamento do Fornecedor", telaPagamentoFornecedor);
+            CarregarBotaoAba();   
+        }
     }         
     
     private void CriarMenuItemFornecedorProduto(){
@@ -506,10 +598,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemFornecedorProduto(java.awt.event.MouseEvent evt){
-        telaFornecedorProduto = new TelaFornecedorProduto();
-        SetAcessoBotoes("TelaFornecedorProduto", RetornaVetorBotoesPermitidos("TelaFornecedorProduto"));
-        jtpTelas.add("Fornecedor do Produto", telaFornecedorProduto);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Fornecedor do Produto"))){        
+            telaFornecedorProduto = new TelaFornecedorProduto();
+            telaFornecedorProduto.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaFornecedorProduto", RetornaVetorBotoesPermitidos("TelaFornecedorProduto"));
+            jtpTelas.add("Fornecedor do Produto", telaFornecedorProduto);
+            CarregarBotaoAba();        
+        }
     }             
     
     private void CriarMenuItemAvaliacaoPedido(){
@@ -524,10 +619,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemAvaliacaoPedido(java.awt.event.MouseEvent evt){
-        telaAvaliacaoPedido = new TelaAvaliacaoPedido();
-        SetAcessoBotoes("TelaAvaliacaoPedido", RetornaVetorBotoesPermitidos("TelaAvaliacaoPedido"));
-        jtpTelas.add("Avaliação do Pedido", telaAvaliacaoPedido);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Avaliação do Pedido"))){        
+            telaAvaliacaoPedido = new TelaAvaliacaoPedido();
+            SetAcessoBotoes("TelaAvaliacaoPedido", RetornaVetorBotoesPermitidos("TelaAvaliacaoPedido"));
+            jtpTelas.add("Avaliação do Pedido", telaAvaliacaoPedido);
+            CarregarBotaoAba();        
+        }
     }               
     
     private void CriarMenuItemPedido(){
@@ -542,10 +639,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemPedido(java.awt.event.MouseEvent evt){
-        telaPedido = new TelaPedido();
-        SetAcessoBotoes("TelaPedido", RetornaVetorBotoesPermitidos("TelaPedido"));
-        jtpTelas.add("Pedido", telaPedido);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Pedido"))){        
+            telaPedido = new TelaPedido();
+            telaPedido.setDesktopPane(jdpTelas);            
+            SetAcessoBotoes("TelaPedido", RetornaVetorBotoesPermitidos("TelaPedido"));
+            jtpTelas.add("Pedido", telaPedido);
+            CarregarBotaoAba();        
+        }
     }        
     
     private void CriarMenuItemImportacao(){
@@ -560,10 +660,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemImportacao(java.awt.event.MouseEvent evt){
-        telaImportacao = new TelaImportacao();
-        SetAcessoBotoes("TelaImportacao", RetornaVetorBotoesPermitidos("TelaImportacao"));
-        jtpTelas.add("Importação", telaImportacao);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Importação"))){        
+            telaImportacao = new TelaImportacao();
+            SetAcessoBotoes("TelaImportacao", RetornaVetorBotoesPermitidos("TelaImportacao"));
+            jtpTelas.add("Importação", telaImportacao);
+            CarregarBotaoAba();        
+        }
     }        
     
     private void CriarMenuItemBotao(){
@@ -578,10 +680,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemBotao(java.awt.event.MouseEvent evt){
-        telaBotao = new TelaBotao();
-        SetAcessoBotoes("TelaBotao", RetornaVetorBotoesPermitidos("TelaBotao"));
-        jtpTelas.add("Botão", telaBotao);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Botão"))){
+            telaBotao = new TelaBotao();
+            SetAcessoBotoes("TelaBotao", RetornaVetorBotoesPermitidos("TelaBotao"));
+            jtpTelas.add("Botão", telaBotao);
+            CarregarBotaoAba();    
+        }
     }         
     
     private void CriarMenuItemPerfil(){
@@ -596,11 +700,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemPerfil(java.awt.event.MouseEvent evt){
-        telaPerfil = new TelaPerfil();
-        SetAcessoBotoes("TelaPerfil", RetornaVetorBotoesPermitidos("TelaPerfil"));
-        telaPerfil.setDesktopPane(jdpTelas);        
-        jtpTelas.add("Perfil", telaPerfil);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Perfil"))){       
+            telaPerfil = new TelaPerfil();
+            SetAcessoBotoes("TelaPerfil", RetornaVetorBotoesPermitidos("TelaPerfil"));
+            telaPerfil.setDesktopPane(jdpTelas);        
+            jtpTelas.add("Perfil", telaPerfil);
+            CarregarBotaoAba();        
+        }
     }             
     
     private void CriarMenuItemCadastroTela(){
@@ -615,11 +721,13 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemCadastroTela(java.awt.event.MouseEvent evt){
-        telaCadastroTela = new TelaCadastroTela();
-        telaCadastroTela.setDesktopPane(jdpTelas);
-        SetAcessoBotoes("TelaCadastroTela", RetornaVetorBotoesPermitidos("TelaCadastroTela"));
-        jtpTelas.add("Tela", telaCadastroTela);
-        CarregarBotaoAba();        
+        if (!(VerificaTelaInstanciada("Tela"))){        
+            telaCadastroTela = new TelaCadastroTela();
+            telaCadastroTela.setDesktopPane(jdpTelas);
+            SetAcessoBotoes("TelaCadastroTela", RetornaVetorBotoesPermitidos("TelaCadastroTela"));
+            jtpTelas.add("Tela", telaCadastroTela);
+            CarregarBotaoAba();        
+        }
     }           
     
     private void CriarMenuItemUsuario(){
@@ -634,12 +742,35 @@ public class TelaInicio extends javax.swing.JFrame {
     }
     
     private void CliqueItemUsuario(java.awt.event.MouseEvent evt){
-        telaUsuario = new TelaUsuario();
-        SetAcessoBotoes("TelaUsuario", RetornaVetorBotoesPermitidos("TelaUsuario"));
-        telaUsuario.setDesktopPane(jdpTelas);
-        jtpTelas.add("Usuario", telaUsuario);
-        CarregarBotaoAba();        
-    }         
+        if (!(VerificaTelaInstanciada("Usuário"))){        
+            telaUsuario = new TelaUsuario();
+            SetAcessoBotoes("TelaUsuario", RetornaVetorBotoesPermitidos("TelaUsuario"));
+            telaUsuario.setDesktopPane(jdpTelas);
+            jtpTelas.add("Usuário", telaUsuario);
+            CarregarBotaoAba();    
+        }
+    }      
+    
+    private void CriarMenuItemConfiguracoes() {
+        jmiConfiguracoes = new JMenuItem();
+        jmiConfiguracoes.setText("Configurações");
+        jmnSeguranca.add(jmiConfiguracoes);
+        jmiConfiguracoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CliqueItemConfiguracoes(evt);
+            }
+        });  
+    }   
+    
+    private void CliqueItemConfiguracoes(java.awt.event.MouseEvent evt){
+        if (!(VerificaTelaInstanciada("Configuracoes"))){        
+            telaConfiguracoes = new TelaConfiguracoes();
+            //SetAcessoBotoes("TelaUsuario", RetornaVetorBotoesPermitidos("TelaUsuario"));
+            //telaConfiguracoes.setDesktopPane(jdpTelas);
+            jtpTelas.add("Configuracoes", telaConfiguracoes);
+            CarregarBotaoAba();    
+        }
+    }      
     
     
     private void IdentificaAcesso(){ 
@@ -841,6 +972,18 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
                 CriarMenuItemUsuario();                                     
             break;
+            case 23:
+                if (!(CriouMenuCardapio)) { 
+                     CriarMenuCardapio();
+                }
+                CriarMenuItemRefeicao();                                     
+            break; 
+            case 24:
+                if (!(CriouMenuSeguranca)) { 
+                     CriarMenuSeguranca();
+                }
+                CriarMenuItemConfiguracoes();                                     
+            break;                 
         }
     }
     
@@ -872,6 +1015,32 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
             } telaBanco.setComportamento(3);
         } else
+        //Refeição
+        if (Tela.equals("TelaRefeicao")) {
+            if (BotoesPermitidos.isEmpty()) {
+                telaRefeicao.HabilitaBotoesAncestral();    
+            } else {            
+                while (BotoesPermitidos.size() > cont) {
+                    if (BotoesPermitidos.get(cont).equals("jbtNovo")){
+                        telaRefeicao.setHabilitaNovo(true);
+                    } else 
+                    if (BotoesPermitidos.get(cont).equals("jbtVoltar")){
+                        telaRefeicao.setHabilitaVoltar(true);
+                    } else
+                    if (BotoesPermitidos.get(cont).equals("jbtPesquisar")){
+                        telaRefeicao.setHabilitaPesquisar(true);
+                        telaRefeicao.setHabilitaVoltar(true);
+                    } else
+                    if (BotoesPermitidos.get(cont).equals("jbtExcluir")){
+                        telaRefeicao.setHabilitaExcluir(true);
+                    } else
+                    if (BotoesPermitidos.get(cont).equals("jbtSalvar")){
+                        telaRefeicao.setHabilitaSalvar(true);
+                    }                    
+                cont++;
+                }
+            } telaRefeicao.setComportamento(3);
+        } else            
         //Tela Forma Pagamento
         if (Tela.equals("TelaFormaPagamento")) {
             if (BotoesPermitidos.isEmpty()) {

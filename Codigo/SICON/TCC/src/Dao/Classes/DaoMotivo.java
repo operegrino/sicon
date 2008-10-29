@@ -112,7 +112,7 @@ public class DaoMotivo extends DaoAbstractGenerica implements DaoGenericaMotivo{
         }
         while (ListaParametros.size() > contador) {
             if (ListaParametros.get(contador).contentEquals("nome")) {
-                Parametros = Parametros + "m.nome ILIKE '%"+ ListaParametros.get(contador + 1) +"%'";
+                Parametros = Parametros + "m.nome LIKE '%"+ ListaParametros.get(contador + 1) +"%'";
             }else if (ListaParametros.get(contador).contentEquals("baixar")){
                 if (Integer.parseInt(ListaParametros.get(contador + 1)) == 0) {
                     Parametros = Parametros + "m.baixar = true";

@@ -6,6 +6,7 @@
 package Controller;
 
 import Classes.mensagens;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +22,14 @@ public class ControllerAncestral {
     
     public String RetornaMensagem(int Codigo){
         return Mensagens.RetornaMensagem(Codigo);
+    }
+    
+    public ArrayList RetornaMensagemETipo(int Codigo){
+        ArrayList Lista = new ArrayList();
+        Mensagens.LerClasse(Codigo);
+        Lista.add(Mensagens.getMensagem());
+        Lista.add(Mensagens.getTipoMensagem());
+        return Lista;
     }
 
 }

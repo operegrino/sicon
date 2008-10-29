@@ -16,7 +16,7 @@ import Telas.Formulario.TelaCardapio;
 import Telas.Formulario.TelaCargo;
 import Telas.Formulario.TelaComposicaoCentesimal;
 import Telas.Formulario.TelaContatoFornecedor;
-import Telas.Formulario.TelaEstoque;
+import Telas.Formulario.TelaMovimentacao;
 import Telas.Formulario.TelaFichaTecnica;
 import Telas.Formulario.TelaFormaPagamento;
 import Telas.Formulario.TelaFornecedor;
@@ -56,7 +56,7 @@ public class TelaInicioVelho extends javax.swing.JFrame {
     private TelaFichaTecnica telaFichaTecnica;
     private TelaOrdemProducao telaOrdemProducao;
     private TelaProduto telaProduto;
-    private TelaEstoque telaEstoque;
+    private TelaMovimentacao telaEstoque;
     private TelaSaldoEstoque telaSaldoEstoque;
     private TelaContatoFornecedor telaContatoFornecedor;
     private TelaFornecedor telaFornecedor;
@@ -464,7 +464,7 @@ private void jiiProdutoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:
 }//GEN-LAST:event_jiiProdutoMousePressed
 
 private void jiiEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jiiEstoqueMousePressed
-    telaEstoque = new TelaEstoque();
+    telaEstoque = new TelaMovimentacao();
     jtpTelas.add("Estoque", telaEstoque);
     CarregarBotaoAba();   
 }//GEN-LAST:event_jiiEstoqueMousePressed

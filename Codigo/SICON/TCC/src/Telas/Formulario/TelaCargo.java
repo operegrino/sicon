@@ -33,12 +33,13 @@ public class TelaCargo extends TelaAncestral implements InterfacePadraoTela {
     /** Creates new form BeanForm */
     public TelaCargo() {
         initComponents();  
+        IniciarTela();
     }
     
 
     @Override
     public void IniciarTela() {
-        super.setTitulo("CARGO");
+        super.setTitulo("Cargo");
         Controller = new ControllerCargo();
         setPanelTela(this.jpnPesquisa, this.jpnCadastro, this.jpnTela);
         super.setComportamentoPanel(0);
@@ -248,6 +249,7 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
         if (super.getTipoVisualizacao() == 0) {
             ControllerParaTela(Controller.EventoSelecionar(RetornaId(jtbCargo.getSelectedRow())));
             super.Operacao = 1;
+            super.setLocalizacao(1);            
             setComportamento(2);     
             super.setComportamentoPanel(2);
         } else {

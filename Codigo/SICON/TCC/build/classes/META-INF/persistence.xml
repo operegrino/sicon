@@ -2,27 +2,50 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="TCC2PU" transaction-type="RESOURCE_LOCAL">
     <provider>oracle.toplink.essentials.PersistenceProvider</provider>
-    <class>Classes.banco</class>
-    <class>Classes.botao</class>
     <class>Classes.cargo</class>
-    <class>Classes.dadosbancarios</class>
-    <class>Classes.formapagamento</class>
-    <class>Classes.fornecedor</class>
-    <class>Classes.logsistema</class>
     <class>Classes.mensagens</class>
-    <class>Classes.motivo</class>
-    <class>Classes.perfil</class>
+    <class>Classes.usuario</class>
+    <class>Classes.botao</class>
     <class>Classes.perfiltela</class>
     <class>Classes.tela</class>
+    <class>Classes.perfil</class>
     <class>Classes.telabotao</class>
     <class>Classes.ultimousuario</class>
+    <class>Classes.logsistema</class>
+    <class>Classes.banco</class>
+    <class>Classes.formapagamento</class>
+    <class>Classes.motivo</class>
     <class>Classes.unidademedida</class>
-    <class>Classes.usuario</class>
+    <class>Classes.dadosbancarios</class>
+    <class>Classes.fornecedor</class>
+    <class>Classes.tipotelefone</class>
+    <class>Classes.telefone</class>
+    <class>Classes.email</class>
+    <class>Classes.produto</class>
+    <class>Classes.composicaocentesimal</class>
+    <class>Classes.fornecedorproduto</class>
+    <class>Classes.tipofornecedor</class>
+    <class>Classes.fichatecnicaitens</class>
+    <class>Classes.fichatecnica</class>
+    <class>Classes.refeicao</class>
+    <class>Classes.cardapio</class>
+    <class>Classes.operacao</class>
+    <class>Classes.movimento</class>
+    <class>Classes.origemordem</class>
+    <class>Classes.situacaoordem</class>
+    <class>Classes.ordemproducao</class>
+    <class>Classes.ordemproduto</class>
+    <class>Classes.situacaopedido</class>
+    <class>Classes.historicopedido</class>
+    <class>Classes.itemavaliacao</class>
+    <class>Classes.itempedido</class>
+    <class>Classes.pedido</class>
+    <class>Classes.Configuracoes</class>
     <properties>
-      <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/tcc"/>
       <property name="toplink.jdbc.user" value="postgres"/>
+      <property name="toplink.jdbc.password" value="JrTm)*85"/>
+      <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/tcc"/>
       <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="toplink.jdbc.password" value="02a3x51985"/>
     </properties>
   </persistence-unit>
 </persistence>
