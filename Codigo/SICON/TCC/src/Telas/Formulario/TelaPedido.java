@@ -54,6 +54,7 @@ public class TelaPedido extends TelaAncestral implements InterfacePadraoAcessoOu
     private TelaProduto telaProduto;
     private Integer IdItemPedido;
     private JButton jbtArquivo;
+    private TelaAvaliacaoPedido telaAvaliacao;
 
     /** Creates new form BeanForm */
     public TelaPedido() {
@@ -90,6 +91,10 @@ public class TelaPedido extends TelaAncestral implements InterfacePadraoAcessoOu
         IdItemPedido = 0;
         idPedido = 0;
     }    
+    
+    public void setTelaAvaliacao(TelaAvaliacaoPedido tela) {
+        this.telaAvaliacao = tela;
+    }
     /*************************************************************************
      *     MÉTODOS SOBRESCRITO DA ANCESTRAL (EVENTOS DOS BOTÕES)
      ************************************************************************/ 
@@ -940,10 +945,18 @@ private void jbtProdutoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:
 
 private void jtbPedidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbPedidoMousePressed
     if ((evt.getClickCount() == 2) && (evt.getButton() == 1)) {
-        idPedido = RetornaId(jtbPedido.getSelectedRow());
-        SelecionarPedido(idPedido);
-        
+        if (super.getTipoVisualizacao() == 0) {
+            idPedido = RetornaId(jtbPedido.getSelectedRow());
+            SelecionarPedido(idPedido);
+        } else if (telaAvaliacao != null) {
+            telaAvaliacao.setarCampos(String.valueOf(RetornaId(jtbPedido.getSelectedRow())),
+                    ((Vector) ListaPedido.get(jtbPedido.getSelectedRow())).get(4).toString(),
+                    ((Vector) ListaPedido.get(jtbPedido.getSelectedRow())).get(3).toString(),
+                    ((Vector) ListaPedido.get(jtbPedido.getSelectedRow())).get(2).toString());
+            super.FechaFrameInterno();
+        }
     }
+
 }//GEN-LAST:event_jtbPedidoMousePressed
 
 private void SelecionarPedido(Integer id){

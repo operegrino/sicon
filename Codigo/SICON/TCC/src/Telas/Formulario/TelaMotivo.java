@@ -22,10 +22,17 @@ public class TelaMotivo extends TelaAncestral implements InterfacePadraoTela{
 
     private ControllerMotivo Controller;
     private List ListaMotivo;
+    private String idMotivo;
+    private TelaAvaliacaoPedido TelaAvaliacao;
     /** Creates new form BeanForm */
     public TelaMotivo() {
+        super();
         initComponents();      
         IniciarTela();
+    }
+    
+    public void setAvaliacaoPedido(TelaAvaliacaoPedido tela) {
+        this.TelaAvaliacao = tela;
     }
     
     @Override
@@ -258,7 +265,10 @@ private void jtbMotivoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:e
             setComportamento(2);     
             super.setComportamentoPanel(2);
         } else {
-
+            idMotivo = String.valueOf(RetornaId(jtbMotivo.getSelectedRow()));
+            TelaAvaliacao.getCellColuna().setidBotao(idMotivo, (String)((Object[])ListaMotivo.get(jtbMotivo.getSelectedRow()))[1]);
+            super.FechaFrameInterno();
+            super.FrameInterno.dispose();
         }
     }    
 }//GEN-LAST:event_jtbMotivoMousePressed
