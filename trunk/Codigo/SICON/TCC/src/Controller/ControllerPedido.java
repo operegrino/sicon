@@ -70,7 +70,9 @@ public class ControllerPedido extends ControllerAncestral implements InterfaceCo
      */
     public void EventoEnviar(Integer id) throws Exception{
         Pedido.LerClasse(id);        
-        Pedido.EnviarEmail();        
+        Pedido.EnviarEmail();     
+        adicionaSituacao(2);
+        Pedido.Gravar(1);
     }    
 
     @Override
@@ -86,6 +88,16 @@ public class ControllerPedido extends ControllerAncestral implements InterfaceCo
     
     public String RetornaUltimoId(){
         return String.valueOf(Pedido.RetornaUltimoId());
+    }
+    
+    public void adicionaSituacao(int idSituacao){
+        situacaopedido sp = new situacaopedido();
+        sp.LerClasse(idSituacao);
+        historicopedido hist = new historicopedido();
+        hist.setDatahistoricopedido(Calendar.getInstance().getTime());
+        hist.setIdpedido(Pedido);
+        hist.setIdsituacaopedido(sp);        
+        Pedido.getHistorico().add(hist);
     }
 
     @Override

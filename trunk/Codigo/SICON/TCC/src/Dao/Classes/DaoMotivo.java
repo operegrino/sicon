@@ -134,7 +134,23 @@ public class DaoMotivo extends DaoAbstractGenerica implements DaoGenericaMotivo{
             return ListaResultado;
         }
     }
-
+    
+     public List PesquisarExistentesAvaliacao(String ids) {
+         List ListaResultado = null;
+            try {
+                ListaResultado = manager.createQuery("Select m.idmotivo, m.baixar from motivo m where m.idmotivo in (" + ids + ")").getResultList();          
+            } catch (Exception e) {
+                Logger logger = Logger.getLogger("Usuario : " + String.valueOf(UsuarioSistema.getidLogEntrada()));        
+                FileHandler fh = new FileHandler("Exceções do Sistema.txt");   
+                logger.addHandler(fh);      
+                logger.warning(e.getMessage());               
+                e.printStackTrace();                        
+            } finally {
+                manager.clear();
+                return ListaResultado;
+            }
+        }
+    
     @Override
     public motivo CarregarObjeto(motivo object) {
         motivo m = new motivo();

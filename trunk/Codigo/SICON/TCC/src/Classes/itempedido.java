@@ -5,6 +5,7 @@
 
 package Classes;
 
+import Dao.Classes.DaoItemPedido;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -146,17 +147,32 @@ public class itempedido implements Serializable, InterfacePadraoClasse {
 
     @Override
     public void LimparClasse() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        setIditempedido(null);
+        setPedido(null);
+        setProduto(null);
+        setQuantidade(null);
+        setUnidadeMedida(null);
     }
 
     @Override
     public void LerClasse(int Id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        LimparClasse(); 
+        this.setIditempedido(Id);
+        DaoItemPedido daoItemPedido = new DaoItemPedido();
+        try {
+            this.CarregarClasse(daoItemPedido.CarregarObjeto(this));
+        } catch (Exception ex) {
+            this.LimparClasse();
+        }
     }
 
     @Override
     public void CarregarClasse(Object object) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.setIditempedido(((itempedido)object).getIditempedido());
+        this.setPedido(((itempedido)object).getPedido());
+        this.setProduto(((itempedido)object).getProduto());
+        this.setQuantidade(((itempedido)object).getQuantidade());
+        this.setUnidadeMedida(((itempedido)object).getUnidadeMedida());
     }
 
 }

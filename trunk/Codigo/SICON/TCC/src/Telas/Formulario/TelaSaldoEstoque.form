@@ -40,7 +40,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jlbSaldoPendente" max="32767" attributes="1"/>
                           <Component id="jlbSaldoComprometido" alignment="0" pref="118" max="32767" attributes="1"/>
@@ -52,13 +52,10 @@
                           <Component id="jtfSaldoPendente" alignment="0" pref="81" max="32767" attributes="1"/>
                           <Component id="jtfSaldoComprometidoFuturo" alignment="0" pref="81" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="edDescProduto" min="-2" pref="325" max="-2" attributes="1"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="edDescProduto" pref="218" max="32767" attributes="1"/>
               </Group>
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="107" pref="107" max="107" attributes="0"/>

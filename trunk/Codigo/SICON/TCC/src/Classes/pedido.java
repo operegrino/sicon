@@ -52,7 +52,7 @@ public class pedido implements Serializable, InterfacePadraoClasse {
     private fornecedor Fornecedor;      
     @OneToMany(cascade=CascadeType.ALL, mappedBy = "idpedido", fetch=FetchType.EAGER)
     private List<itempedido> ListaItemPedido;
-    @OneToMany(cascade=CascadeType.ALL, mappedBy = "Pedido", fetch=FetchType.LAZY)
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "Pedido", fetch=FetchType.EAGER)
     private List<historicopedido> ListaHistorico;
     @Column(name = "dataentrega", nullable = false)
     @Temporal(TemporalType.DATE) 

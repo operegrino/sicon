@@ -621,6 +621,7 @@ public class TelaInicio extends javax.swing.JFrame {
     private void CliqueItemAvaliacaoPedido(java.awt.event.MouseEvent evt){
         if (!(VerificaTelaInstanciada("Avaliação do Pedido"))){        
             telaAvaliacaoPedido = new TelaAvaliacaoPedido();
+            telaAvaliacaoPedido.setTelaPrincipal(jdpTelas);
             SetAcessoBotoes("TelaAvaliacaoPedido", RetornaVetorBotoesPermitidos("TelaAvaliacaoPedido"));
             jtpTelas.add("Avaliação do Pedido", telaAvaliacaoPedido);
             CarregarBotaoAba();        

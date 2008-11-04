@@ -2,13 +2,34 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2008-10-23T01:14:27</date>
-  <millis>1224731667203</millis>
+  <date>2008-11-02T18:11:45</date>
+  <millis>1225656705671</millis>
   <sequence>2</sequence>
-  <logger>Usuario : 1300</logger>
+  <logger>Usuario : 1614</logger>
   <level>WARNING</level>
-  <class>Dao.Classes.DaoPedido</class>
-  <method>Excluir</method>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
   <thread>10</thread>
-  <message>Transaction rolled back because transaction was set to RollbackOnly.</message>
+  <message>Exception [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs (12/06/2007))): oracle.toplink.essentials.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: null value in column "nome" violates not-null constraint
+Error Code: 0
+Call: INSERT INTO motivo (nome, baixar) VALUES (?, ?)
+	bind =&gt; [null, false]
+Query: InsertObjectQuery(Classes.motivo[idmotivo=null])</message>
+</record>
+<record>
+  <date>2008-11-02T18:11:45</date>
+  <millis>1225656705703</millis>
+  <sequence>3</sequence>
+  <logger>Usuario : 1614</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
+  <thread>10</thread>
+  <message>Exception [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs (12/06/2007))): oracle.toplink.essentials.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+Error Code: 0
+Call: INSERT INTO motivo (nome, baixar) VALUES (?, ?)
+	bind =&gt; [null, false]
+Query: InsertObjectQuery(Classes.motivo[idmotivo=null])</message>
 </record>

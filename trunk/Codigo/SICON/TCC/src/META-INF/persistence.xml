@@ -41,6 +41,7 @@
     <class>Classes.itempedido</class>
     <class>Classes.pedido</class>
     <class>Classes.Configuracoes</class>
+    <class>Classes.situacaoitempedido</class>
     <properties>
       <property name="toplink.jdbc.user" value="postgres"/>
       <property name="toplink.jdbc.password" value="JrTm)*85"/>

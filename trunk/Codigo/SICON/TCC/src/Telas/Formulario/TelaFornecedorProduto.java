@@ -256,6 +256,11 @@ public class TelaFornecedorProduto extends TelaAncestral implements InterfacePad
                 jtbAdicionarMousePressed(evt);
             }
         });
+        jtbAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbAdicionarActionPerformed(evt);
+            }
+        });
 
         jtbExcluir.setText("Excluir  ");
         jtbExcluir.setName("jtbExcluir"); // NOI18N
@@ -705,6 +710,10 @@ private void jbtFornecedorPesqMousePressed(java.awt.event.MouseEvent evt) {//GEN
 private void jbtProdutoPesqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtProdutoPesqMousePressed
     InstaciaTelaProduto();
 }//GEN-LAST:event_jbtProdutoPesqMousePressed
+
+private void jtbAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbAdicionarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jtbAdicionarActionPerformed
 
 public void CarregarCamposProduto(int Pos) {
     idProduto = Integer.parseInt(((Vector)ListaProduto.get(Pos)).get(0).toString());

@@ -251,7 +251,7 @@ public void SetarCamposProduto(Integer Id, String Codigo, String Descricao){
 
         jtfSaldoComprometido.setBackground(new java.awt.Color(204, 204, 204));
         jtfSaldoComprometido.setEditable(false);
-        jtfSaldoComprometido.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jtfSaldoComprometido.setFont(new java.awt.Font("Arial", 1, 11));
         jtfSaldoComprometido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jtfSaldoComprometido.setName("jtfSaldoComprometido"); // NOI18N
 
@@ -299,7 +299,7 @@ public void SetarCamposProduto(Integer Id, String Codigo, String Descricao){
 
         edDescProduto.setBackground(new java.awt.Color(204, 204, 204));
         edDescProduto.setEditable(false);
-        edDescProduto.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        edDescProduto.setFont(new java.awt.Font("Arial", 1, 11));
         edDescProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         edDescProduto.setName("edDescProduto"); // NOI18N
 
@@ -334,11 +334,9 @@ public void SetarCamposProduto(Integer Id, String Codigo, String Descricao){
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfSaldoComprometido, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                             .addComponent(jtfSaldoPendente, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                            .addComponent(jtfSaldoComprometidoFuturo, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                        .addGap(138, 138, 138))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(edDescProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                            .addComponent(jtfSaldoComprometidoFuturo, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
+                    .addComponent(edDescProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addComponent(jtfProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
