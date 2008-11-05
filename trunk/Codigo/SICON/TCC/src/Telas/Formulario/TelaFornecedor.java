@@ -37,6 +37,7 @@ public class TelaFornecedor extends TelaAncestral implements InterfacePadraoAces
     private Integer IdFornecedor;
     private TelaPedido telaPedido;
     private TelaProduto telaProduto;
+    private TelaImportacao telaImportacao;
 
     /** Creates new form BeanForm */
     public TelaFornecedor() {
@@ -77,6 +78,10 @@ public class TelaFornecedor extends TelaAncestral implements InterfacePadraoAces
 
     public void setTelaProduto(TelaProduto tela) {
         this.telaProduto = tela;
+    }    
+    
+    public void setTelaImportacao(TelaImportacao tela) {
+        this.telaImportacao = tela;
     }    
     
       /*************************************************************************
@@ -940,6 +945,8 @@ if ((evt.getClickCount()==1) & (evt.getButton()== MouseEvent.BUTTON1)) {
                 this.telaPedido.SetarCamposFornecedor(((Object[])ListaFornecedor.get(Posicao))[4].toString(), ((Object[])ListaFornecedor.get(Posicao))[0].toString(), ((Object[])ListaFornecedor.get(Posicao))[1].toString());                                
             } else if (telaProduto != null) {
                 this.telaProduto.SetarCamposFornecedor(((Object[])ListaFornecedor.get(Posicao))[4].toString(), ((Object[])ListaFornecedor.get(Posicao))[0].toString(), ((Object[])ListaFornecedor.get(Posicao))[1].toString());                                
+            } else if (telaImportacao != null) {
+                this.telaImportacao.setarCampos(((Object[])ListaFornecedor.get(Posicao))[0].toString(), ((Object[])ListaFornecedor.get(Posicao))[1].toString(), ((Object[])ListaFornecedor.get(Posicao))[4].toString());                                
             }
             super.FechaFrameInterno();
             

@@ -198,6 +198,12 @@ public class DaoFornecedorProduto extends DaoAbstractGenerica implements DaoGene
         manager.clear();
         return fp;
     }
+    
+    public fornecedorproduto CarregaObjeto(String idFornecedor, String codigoProduto) {
+        return (fornecedorproduto)manager.createQuery(" select fp from fornecedorproduto fp where fp.Fornecedor.idfornecedor = " 
+                                                      + idFornecedor + " and fp.codprodutofornecedor = '" 
+                                                      + codigoProduto + "'").getSingleResult();
+    }
 
 
 }

@@ -663,6 +663,7 @@ public class TelaInicio extends javax.swing.JFrame {
     private void CliqueItemImportacao(java.awt.event.MouseEvent evt){
         if (!(VerificaTelaInstanciada("Importação"))){        
             telaImportacao = new TelaImportacao();
+            telaImportacao.setTelaPrincipal(jdpTelas);
             SetAcessoBotoes("TelaImportacao", RetornaVetorBotoesPermitidos("TelaImportacao"));
             jtpTelas.add("Importação", telaImportacao);
             CarregarBotaoAba();        
