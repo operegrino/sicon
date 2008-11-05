@@ -9,6 +9,8 @@ import Classes.fornecedor;
 import Classes.fornecedorproduto;
 import Classes.produto;
 import Classes.tipofornecedor;
+import Dao.Classes.DaoFornecedorProduto;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,16 +23,26 @@ import java.util.Vector;
 public class ControllerFornecedorProduto extends ControllerAncestral implements InterfaceControllerPadrao {
 
     private fornecedorproduto FornecedorProduto;
+    private DaoFornecedorProduto objDao = new DaoFornecedorProduto();
     
     public ControllerFornecedorProduto(){
         FornecedorProduto = new fornecedorproduto();
     }
 
-    @Override
-    public boolean EventoSalvar(ArrayList<Object> Objeto) {        
+    public boolean EventoSalvar(String idForn, String cod, BigDecimal preco) throws Exception{ 
+        FornecedorProduto = objDao.CarregaObjeto(idForn, cod);
+        compoePojoPreco(preco);
+        FornecedorProduto.Gravar(1);
         return false;
     }
 
+    /**
+     * este método é apenas utilizado para alterar o preço;
+     * @param Objeto
+     */
+    private void compoePojoPreco(BigDecimal preco) {
+        FornecedorProduto.setPreco(preco);
+    }
     @Override
     public boolean EventoAlterar(ArrayList<Object> Objeto) {
         return false;
@@ -140,5 +152,10 @@ public class ControllerFornecedorProduto extends ControllerAncestral implements 
         ListaRetorno.add(ListProd);
         }
     return ListaRetorno;
+    }
+
+    @Override
+    public boolean EventoSalvar(ArrayList<Object> Objeto) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

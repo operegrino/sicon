@@ -7,6 +7,7 @@ package Classes;
 
 import Dao.Classes.DaoFornecedorProduto;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -49,6 +50,16 @@ public class fornecedorproduto implements Serializable, InterfacePadraoClasse {
     private String codprodutofornecedor;
     @Column(name = "tempoentrega")
     private Integer tempoentrega;
+    @Column(name="preco")
+    private BigDecimal preco;
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
     @JoinColumn(name = "idtipofornecedor", referencedColumnName = "idtipofornecedor")
     @OneToOne(fetch=FetchType.EAGER)
     private tipofornecedor idtipofornecedor;
