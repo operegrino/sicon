@@ -6,7 +6,7 @@
 package Controller;
 
 import Classes.ConfiguracoesStatic;
-import Classes.EnviarEmail;
+//import Classes.EnviarEmail;
 import Classes.ManipulaExcel;
 import Classes.itemavaliacao;
 import Classes.itempedido;
@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Vector;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
+//import javax.mail.MessagingException;
+//import javax.mail.internet.AddressException;
 import javax.swing.JButton;
 
 /**
@@ -43,13 +43,13 @@ public class ControllerAvaliacaoPedido {
         itemAvaliacao = new itemavaliacao();
     }
 
-    public void EventoEnviar(Integer id) throws AddressException, MessagingException, IOException, Exception{
+  /*  public void EventoEnviar(Integer id) throws AddressException, MessagingException, IOException, Exception{
         EnviarEmail email = new EnviarEmail();        
         pedido Pedido = new pedido();
         Pedido.LerClasse(id);
         Pedido.EnviarEmail();        
-    }
-    
+    }*/
+    //
     /**
      * verifica se o motivo indicado é para baixar
      * @return boolea inidcando se baixa ou não
