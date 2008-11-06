@@ -11,6 +11,7 @@ import Controller.ControllerPedido;
 import Telas.Componentes.TelaInterna;
 import Telas.Tabelas.JTableItemPedido;
 import Telas.Tabelas.JTablePedido;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
 import java.io.FileNotFoundException;
@@ -22,8 +23,8 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
+//import javax.mail.MessagingException;
+//import javax.mail.internet.AddressException;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
@@ -241,13 +242,13 @@ public class TelaPedido extends TelaAncestral implements InterfacePadraoAcessoOu
                         System.out.println(e.getMessage());
                         PedidoNaoEncontrado.append(id.toString());
                         PedidoNaoEncontrado.append(", ");
-                    }
-                    catch  (AddressException e) {
+                   /* }
+                    catch  (Exception e) {
                         System.out.println(e.getMessage());
                         PedidoProblemaEnvio.append(id.toString());
                         PedidoProblemaEnvio.append(", ");                        
                     }
-                    catch  (MessagingException e) {
+                    catch  (Exception e) {
                         System.out.println(e.getMessage());
                         PedidoProblemaEnvio.append(id.toString());
                         PedidoProblemaEnvio.append(", ");   
@@ -256,10 +257,10 @@ public class TelaPedido extends TelaAncestral implements InterfacePadraoAcessoOu
                         System.out.println(e.getMessage());
                         PedidoProblemaEnvio.append(id.toString());
                         PedidoProblemaEnvio.append(", ");
-                    }                        
+                    } */                       
                 }
             }
-        } else {
+        //} else {
             try {
                 Controller.EventoEnviar();    
                 PedidoEnviado.append(idPedido.toString());  
@@ -281,7 +282,7 @@ public class TelaPedido extends TelaAncestral implements InterfacePadraoAcessoOu
         }
     }   
     
-    private void criarBotaoGerarArquivo(){
+   // private void criarBotaoGerarArquivo(){
         jbtArquivo = new JButton("Arquivo");
         jbtArquivo.setIcon(new javax.swing.ImageIcon("C:\\Documents and Settings\\Jonathan\\workspace NetBeans\\TCC\\src\\Icones\\enviar.png"));
         jbtArquivo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);        

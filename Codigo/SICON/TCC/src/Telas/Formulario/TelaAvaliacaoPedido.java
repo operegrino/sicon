@@ -21,8 +21,8 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
+//import javax.mail.MessagingException;
+//import javax.mail.internet.AddressException;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -631,7 +631,7 @@ public void Salvar() {
 private void jbtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtPedidoActionPerformed
     InstaciaTelaPedido();
 }//GEN-LAST:event_jbtPedidoActionPerformed
-
+/*
 private void jbtReenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtReenviarActionPerformed
     StringBuffer PedidoErrado = new StringBuffer();
         StringBuffer PedidoNaoEncontrado = new StringBuffer();
