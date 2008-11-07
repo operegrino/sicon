@@ -135,7 +135,7 @@ public class DaoCardapio extends DaoAbstractGenerica implements DaoGenericaCarda
         }        
         String Ordenacao = " order by c.datacardapio, r.descricao ";
         try {
-            ListaResultado = manager.createNativeQuery("Select c.idcardapio, r.descricao, c.qtderefeicoes, c.datacardapio  from cardapio c inner join refeicao r on c.idrefeicao = r.idrefeicao " + Parametros + Ordenacao).getResultList();            
+            ListaResultado = manager.createNativeQuery("Select false as selecao, c.idcardapio, r.descricao, c.qtderefeicoes, c.datacardapio  from cardapio c inner join refeicao r on c.idrefeicao = r.idrefeicao " + Parametros + Ordenacao).getResultList();            
         } catch (Exception e){
             e.printStackTrace();
         }
