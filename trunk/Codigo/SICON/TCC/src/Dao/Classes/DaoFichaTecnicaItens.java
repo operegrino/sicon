@@ -137,7 +137,7 @@ public class DaoFichaTecnicaItens extends DaoAbstractGenerica {
         }        
         String Ordenacao = " order by p.nome ";
         try {
-            ListaResultado = manager.createNativeQuery("Select f.idfichatecnica, f.idproduto, p.nome, f.pesobruto, f.pesoliquido, f.fatorcorrecao, p.codigo, 1 as IndicacaoExistente from fichatecnicaitens f inner join produto p on f.idproduto = p.idproduto " + Parametros + Ordenacao).getResultList();            
+            ListaResultado = manager.createNativeQuery("Select f.idfichatecnica, f.idproduto, p.nome, f.pesobruto, f.pesoliquido, f.fatorcorrecao, p.codigo, 1 as IndicacaoExistente, p.estoqueminimo, p.unidadeestoque from fichatecnicaitens f inner join produto p on f.idproduto = p.idproduto " + Parametros + Ordenacao).getResultList();            
         } catch (Exception e){
             e.printStackTrace();
         }

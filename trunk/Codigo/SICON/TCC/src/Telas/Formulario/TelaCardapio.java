@@ -13,6 +13,7 @@ import Telas.Tabelas.JTableCardapioFicha;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -133,6 +134,18 @@ public class TelaCardapio extends TelaAncestral implements InterfacePadraoAcesso
     }
 
      private void jbtGerarCardapioActionPerformed(ActionEvent evt) {
+         StringBuffer sbProblemas = new StringBuffer();
+         for (Iterator<Vector> it = ListaCardapio.iterator(); it.hasNext();) {
+             Vector vetorCardapio = it.next();
+             try {
+                 if ((Boolean) vetorCardapio.get(0)) {
+                     Controller.GerarCardapio((Integer) vetorCardapio.get(1));
+                 }
+             } catch (Exception e) {
+                 sbProblemas.append(", " + vetorCardapio.get(1).toString());
+                 System.out.println(e.getMessage());
+             }
+         }
          telaOrdemEPedido = new TelaOrdemEPedido();
          //telaOrdemEPedido.setTipoVisualizacao(1);
          JInternalFrame TelaInterna = new JInternalFrame();
@@ -769,7 +782,7 @@ private void setarTituloAdicionar(int Tipo){
 
     @Override
     public int RetornaId(int Linha) {
-        return Integer.parseInt(((Vector)ListaCardapio.get(Linha)).get(0).toString());
+        return Integer.parseInt(((Vector)ListaCardapio.get(Linha)).get(1).toString());
     }
 
     @Override

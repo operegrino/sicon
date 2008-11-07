@@ -34,35 +34,55 @@ public class JTableCardapio extends AbstractTableModel{
     @Override
     public String getColumnName(int col) {
         if (col == 0) {
-            return "Código";
-        } else
-        if (col == 1) {
-            return "Refeição";
-        } else
-        if (col == 2) {
-            return "Data";
-        } else
-        if (col == 3) {
-            return "Quantidade";
-        } else
             return "";
+        } else if (col == 1) {
+            return "Código";
+        } else if (col == 2) {
+            return "Refeição";
+        } else if (col == 3) {
+            return "Data";
+        } else if (col == 4) {
+            return "Quantidade";
+        } else {
+            return "";
+        }
     }
+    
+   @Override
+    public boolean isCellEditable(int row, int col) {
+        if (col == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Class getColumnClass(int c) {
+        return getValueAt(0, c).getClass();
+    }
+
+    @Override
+    public void setValueAt(Object value, int row, int col) {
+        ((Vector)ListaCardapio.get(row)).set(col, value);
+        fireTableCellUpdated(row, col);
+    }    
 
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        if (columnIndex == 0) {            
-            return ((Vector)ListaCardapio.get(rowIndex)).get(0); 
-        } else
-        if (columnIndex == 1) {            
-            return ((Vector)ListaCardapio.get(rowIndex)).get(1); 
-        } else
-        if (columnIndex == 2) {            
-            return ((Vector)ListaCardapio.get(rowIndex)).get(2); 
-        } else
-        if (columnIndex == 3) {            
-            return ((Vector)ListaCardapio.get(rowIndex)).get(3); 
-        } else return "";
-                  
+        if (columnIndex == 0) {
+            return ((Vector) ListaCardapio.get(rowIndex)).get(0);
+        } else if (columnIndex == 1) {
+            return ((Vector) ListaCardapio.get(rowIndex)).get(1);
+        } else if (columnIndex == 1) {
+            return ((Vector) ListaCardapio.get(rowIndex)).get(2);
+        } else if (columnIndex == 2) {
+            return ((Vector) ListaCardapio.get(rowIndex)).get(3);
+        } else if (columnIndex == 3) {
+            return ((Vector) ListaCardapio.get(rowIndex)).get(4);
+        } else {
+            return "";
+        }                  
     }
 }
