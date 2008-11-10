@@ -1,0 +1,15 @@
+Passos para o desenvolvimento do Initial Request - Plano do Projeto:
+
+- Definir o contexto do projeto - descrever o atual ambiente sem o sistema implementado, como eles fazem todo o controle (bem descrito). Descrever o que ocorre de perdas se eles continuarem fazendo tudo manual sem estar informatizado e os gastos que eles terão. Descrever a oportunidade perdida, ou prejuízo, caso eles não implementem o software. Escrever tudo em termos comerciais e de maneira chamativa (nada técnico e que o cliente não conheça).
+
+- Definir e priorizar (classificar) os objetivos do projeto - Descrever o que é necessário para o projeto alcançar o exito e porque isso é importante para a organização (cliente). Identificar quais são os objetivos gerais do projeto.  Hierarquisar e organizar os objetivos de maneira a mostrar os beneficios que podem ser esperados a partir do projeto proposto.
+
+- Definir o propósito do projeto - Resumir o projecto proposto, em termos de como ele aborda impactos ou oportunidades. Definir o escopo que delimita até onde o projeto pode ir (como por exemplo, o sistema vai fazer controle de carros pequenos e com duas portas (escopo bem definido - sem aparecer carro grande esta fora do escopo - exemplo apenas)). Determinar quais são as limitações e as prioridades das entregas (exemplo, a parte de cadastro de clientes será desenvolvida antes do cadastro de produtos porque....). Definir o projeto proposto em termos de clientes, solicitação da regiao e investimento. Mostrar que, por exemplo, que há clientes que se interessam pelo produto, que não região não tem tal produto, etc. <- é apenas um exemplo!
+
+- Definir os requisitos que o sistema terá em nível macro - Já feito
+
+- Fazer a análise inicial de risco (do projeto como um todo) - Já feito pelo Jean e Geronimo
+
+- Definir a organização do projeto - Fornecer nomes para os papéis fundamentais para o projeto e o que cada um vai fazer, papel de cada um (por exemplo, analista, programador, testador, etc.). Definir o empenho de cada um e toda e qualquer restrição que houver, assim como todo e qualquer apoio de alguém fora da área.
+
+
