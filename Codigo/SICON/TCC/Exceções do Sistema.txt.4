@@ -2,14 +2,95 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2008-10-04T01:10:57</date>
-  <millis>1223093457250</millis>
+  <date>2008-11-10T18:11:56</date>
+  <millis>1226347916437</millis>
   <sequence>4</sequence>
-  <logger>Usuario : 1183</logger>
+  <logger>Usuario : 1643</logger>
   <level>WARNING</level>
-  <class>Dao.Classes.DaoOrdemProducao</class>
-  <method>BaixarOrdem</method>
-  <thread>10</thread>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
+  <thread>12</thread>
   <message>
-Exception Description: No transaction is currently active</message>
+Internal Exception: org.postgresql.util.PSQLException: ERROR: function gravarsaldo(date, integer, integer, integer, integer) does not exist
+Error Code: 0
+Call: select gravarsaldo(cast('20081111' as date), 10, 10, 3, 0)
+Query: DataReadQuery()</message>
+</record>
+<record>
+  <date>2008-11-10T18:11:56</date>
+  <millis>1226347916453</millis>
+  <sequence>5</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoPedido</class>
+  <method>Salvar</method>
+  <thread>12</thread>
+  <message>Transaction rolled back because transaction was set to RollbackOnly.</message>
+</record>
+<record>
+  <date>2008-11-10T18:12:33</date>
+  <millis>1226347953421</millis>
+  <sequence>6</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
+  <thread>13</thread>
+  <message>
+Internal Exception: org.postgresql.util.PSQLException: ERROR: function gravarsaldo(date, integer, integer, integer, integer) does not exist
+Error Code: 0
+Call: select gravarsaldo(cast('20081211' as date), 13, 12, 3, 0)
+Query: DataReadQuery()</message>
+</record>
+<record>
+  <date>2008-11-10T18:12:33</date>
+  <millis>1226347953421</millis>
+  <sequence>7</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoPedido</class>
+  <method>Salvar</method>
+  <thread>13</thread>
+  <message>Transaction rolled back because transaction was set to RollbackOnly.</message>
+</record>
+<record>
+  <date>2008-11-10T18:13:11</date>
+  <millis>1226347991671</millis>
+  <sequence>8</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
+  <thread>14</thread>
+  <message>
+Internal Exception: org.postgresql.util.PSQLException: ERROR: function gravarsaldo(date, integer, integer, integer, integer) does not exist
+Error Code: 0
+Call: select gravarsaldo(cast('20081010' as date), 10, 5, 3, 0)
+Query: DataReadQuery()</message>
+</record>
+<record>
+  <date>2008-11-10T18:13:11</date>
+  <millis>1226347991687</millis>
+  <sequence>9</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoMovimento</class>
+  <method>GravarSaldo</method>
+  <thread>14</thread>
+  <message>
+Internal Exception: org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+Error Code: 0
+Call: select gravarsaldo(cast('20081010' as date), 10, 5, 3, 0)
+Query: DataReadQuery()</message>
+</record>
+<record>
+  <date>2008-11-10T18:13:11</date>
+  <millis>1226347991703</millis>
+  <sequence>10</sequence>
+  <logger>Usuario : 1643</logger>
+  <level>WARNING</level>
+  <class>Dao.Classes.DaoPedido</class>
+  <method>Salvar</method>
+  <thread>14</thread>
+  <message>Transaction rolled back because transaction was set to RollbackOnly.</message>
 </record>
