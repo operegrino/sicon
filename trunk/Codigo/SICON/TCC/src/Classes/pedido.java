@@ -7,7 +7,6 @@ package Classes;
 
 import Classes.email;
 import Dao.Classes.DaoPedido;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,8 +15,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-//import javax.mail.MessagingException;
-//import javax.mail.internet.AddressException;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
