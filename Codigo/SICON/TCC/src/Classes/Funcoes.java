@@ -6,29 +6,16 @@
 package Classes;
 
 import Telas.Componentes.Progressao;
-import Telas.Formulario.TelaCargo;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.lang.String;
-import java.net.Authenticator;
-import java.net.Authenticator;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
-import java.security.Provider;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Properties;
+import java.util.Iterator;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
-import javax.swing.SwingWorker;
 
 /**
  *
@@ -62,6 +49,89 @@ public class Funcoes {
             cont++;
         }
         return sRetorno;
+    }
+    
+    private int verificaTipo(int idUnidadeMedida) {
+        unidademedida unidade = new unidademedida();
+        unidade.LerClasse(idUnidadeMedida);
+        if (unidade.getMiligrama()) {
+            return 1;
+        } else if (unidade.getgrama()) {
+            return 2;
+        } else if (unidade.getQuilograma()) {
+            return 3;
+        } else {
+            return 0;
+        }
+        
+    }
+    /**
+     * Converte o numero passado para a 
+     * classifição(1-miligrama, 2-grama, 3-quilo) necessaria
+     * @param Peso
+     * @param Classificacao
+     * @return
+     */
+    public BigDecimal converterPesoEmKilo(BigDecimal peso, int idUnidadeMedida, int classificacao){
+        BigDecimal resultado = new BigDecimal(0);
+        int medida = verificaTipo(idUnidadeMedida);
+        if (medida == classificacao) {
+            resultado = peso;
+        } else if (medida == 1) {
+            if (classificacao == 2) {
+                resultado = peso.divide(new BigDecimal(1000));
+            } else if (classificacao == 3) {
+                resultado = peso.divide(new BigDecimal(1000000));
+            }
+        } else if (medida == 2) {
+            if (classificacao == 1) {
+                resultado = peso.multiply(new BigDecimal(1000));
+            } else if (classificacao == 3) {
+                resultado = peso.divide(new BigDecimal(1000));
+            }
+        } else if (medida == 3) {
+            if (classificacao == 1) {
+                resultado = peso.multiply(new BigDecimal(1000000));
+            } else if (classificacao == 2) {
+                resultado = peso.multiply(new BigDecimal(1000));
+            }
+        }
+        return resultado;
+    }   
+    
+    /**
+     * 
+     * @param listaNaQualProcurar
+     * @param ProcurarPeloOQue
+     * @param NaPosicaoProcurarPeloOQue
+     * @param NaPosicaoRetorna
+     * @return  Object que representa o valor necessário
+     */
+    public static Object retornaValorObject(ArrayList listaNaQualProcurar, Object ProcurarPeloOQue, int NaPosicaoProcurarPeloOQue, int NaPosicaoRetorna) {
+        for (Iterator<ArrayList> it = listaNaQualProcurar.iterator(); it.hasNext();) {
+            ArrayList lista = it.next();
+            if (lista.get(NaPosicaoProcurarPeloOQue).equals(ProcurarPeloOQue)) {
+                return lista.get(NaPosicaoRetorna);
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * verifica se o parametro id, está contido no array de array 
+     * na posição posicaoVerificar
+     * @param id
+     * @param vetor
+     * @param posicaoVerificar
+     * @return
+     */
+    public static boolean isAdicionada(Object id, ArrayList lista, int posicaoVerificar) {
+        for (Iterator<ArrayList> it = lista.iterator(); it.hasNext();) {
+            ArrayList ls = it.next();
+            if ((Integer)ls.get(posicaoVerificar) == id) {
+                return true;
+            }            
+        } return false;
     }
     
     public static boolean ValidaCnpj(String str_cnpj) {

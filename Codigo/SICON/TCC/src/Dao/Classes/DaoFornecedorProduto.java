@@ -171,14 +171,19 @@ public class DaoFornecedorProduto extends DaoAbstractGenerica implements DaoGene
                 And = " And ";                
             } else if (ListaParametros.get(contador).equals("tipo")){
                 Parametros = Parametros + And + " tf.idtipofornecedor = "+ ListaParametros.get(contador + 1);
-                And = " And ";
+                And = " And ";                
+            } else 
+                // usado apenas para gerar o cardapio automaticamento
+                if (ListaParametros.get(contador).equals("idproduto")){
+                Parametros = Parametros + And + " p.idproduto in ("+ ListaParametros.get(contador + 1) + ") and tf.idtipofornecedor = 1 ";
+                And = " And ";                
             }
             contador = contador + 2;
         }        
         String Ordenacao = " order by f.razaosocial ";
         String Consulta  = "select f.idfornecedor, f.razaosocial, p.idproduto, p.nome, fp.codprodutofornecedor, " +
                                 " fp.tempoentrega, tf.descricao, fp.idfornecedorproduto, p.codigo, " +
-                                " tf.idtipofornecedor, f.codigo " +
+                                " tf.idtipofornecedor, f.codigo, fp.preco " +
                             " from fornecedor f  " +
                             " inner join fornecedorproduto    fp on  f.idfornecedor     = fp.idfornecedor " +
                             " inner join produto               p on  p.idproduto        = fp.idproduto   " +

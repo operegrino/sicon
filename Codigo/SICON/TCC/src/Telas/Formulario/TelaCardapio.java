@@ -39,6 +39,7 @@ public class TelaCardapio extends TelaAncestral implements InterfacePadraoAcesso
     private ArrayList ListaFichaTecnica;
     private Vector ListaCardapio;
     private ControllerCardapio Controller;
+    private TelaCardapioGerado telaCardapioGerado;
     
     /** Creates new form BeanForm */
     public TelaCardapio() {
@@ -135,20 +136,23 @@ public class TelaCardapio extends TelaAncestral implements InterfacePadraoAcesso
 
      private void jbtGerarCardapioActionPerformed(ActionEvent evt) {
          StringBuffer sbProblemas = new StringBuffer();
+         ArrayList listaCardapio = new ArrayList(100);
          for (Iterator<Vector> it = ListaCardapio.iterator(); it.hasNext();) {
              Vector vetorCardapio = it.next();
              try {
                  if ((Boolean) vetorCardapio.get(0)) {
-                     Controller.GerarCardapio((Integer) vetorCardapio.get(1));
+                     listaCardapio.add(Controller.GerarCardapio((Integer) vetorCardapio.get(1)));
                  }
              } catch (Exception e) {
-                 sbProblemas.append(", " + vetorCardapio.get(1).toString());
+                 sbProblemas.append(", " + vetorCardapio.get(1).toString());                 
                  System.out.println(e.getMessage());
+                 e.printStackTrace();
              }
          }
-         telaOrdemEPedido = new TelaOrdemEPedido();
+         telaCardapioGerado = new TelaCardapioGerado();
          //telaOrdemEPedido.setTipoVisualizacao(1);
-         JInternalFrame TelaInterna = new JInternalFrame();
+         super.CriarTelaInterna(telaCardapioGerado);
+         /*JInternalFrame TelaInterna = new JInternalFrame();
          //TelaInterna = super.CarregarTelaInterna("Ordem e Pedido");
          CarregarTela(TelaInterna);
          //super.BloqueiaTela();
@@ -157,7 +161,7 @@ public class TelaCardapio extends TelaAncestral implements InterfacePadraoAcesso
                  //telaAuxiliar = new TelaAuxiliar(telaCargo, jtfPesqDescricao2);
              } catch (PropertyVetoException ex) {
                  Logger.getLogger(TelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-             }                
+             }   */             
       }
     /** This method is called from within the constructor to
      * initialize the form.
